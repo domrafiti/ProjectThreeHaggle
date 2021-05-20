@@ -1,28 +1,46 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
+import Main from "./components/Main";
 import Nav from "./components/Nav";
+import Listing from "./components/Listing";
+import Listings from "./components/Listings";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Profile from "./components/Profile";
+//import NoMatch from "./pages/NoMatch";
 
 function App() {
+  console.log("yo mama");
   return (
-    <Router>
-      <div>
-        <Nav />
+    <div>
+      <Nav />
+      <Router>
         <Switch>
-          <Route exact path={["/", "/books"]}>
-            <Books />
+          {/* Logged in routing here */}
+          <Route exact path="/">
+            <Main />
           </Route>
-          <Route exact path="/books/:id">
-            <Detail />
+          <Route exact path="/listings">
+            <Listings />
           </Route>
-          <Route>
+          <Route exact path="/listing/:id">
+            <Listing />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          {/* <Route>
             <NoMatch />
-          </Route>
+          </Route> */}
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
