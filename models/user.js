@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const uuid = require("uuid").v4;
 const userSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
@@ -11,6 +11,9 @@ const userSchema = new Schema({
   created_dt: { type: Date, default: Date.now() },
   listings: [
     {
+      listing_id: {
+        type: { uuid },
+      },
       title: {
         type: String,
         trim: true,
@@ -27,7 +30,7 @@ const userSchema = new Schema({
       },
       category: {
         type: String,
-        required: true,
+        required: "Choose a category",
       },
       status: {
         type: String,

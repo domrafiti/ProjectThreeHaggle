@@ -10,7 +10,6 @@ import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
 
 function App() {
-  console.log("yo mama");
   return (
     <div>
       <Nav />
