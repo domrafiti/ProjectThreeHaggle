@@ -27,7 +27,8 @@ const userSeed = [
         description: "Clean ya up real nice",
         status: "Active",
         category: "Services",
-        image_path: "uploads/1f0be074-82a7-4950-82de-5f27ed7089ae-haircut.jpg",
+        image_path:
+          "http://localhost:3000/uploads/1f0be074-82a7-4950-82de-5f27ed7089ae-haircut.jpg",
         date_created: Date.now(),
       },
       {
@@ -37,7 +38,8 @@ const userSeed = [
           "John Deere Z335E 20-HP V-Twin Dual Hydrostatic 42-in Zero-Turn Lawn Mower with Mulching Capability",
         status: "Active",
         category: "Automobiles",
-        image_path: "uploads/136065de-eb4b-4534-9323-79373a290595-mower.jpg",
+        image_path:
+          "http://localhost:3000/uploads/136065de-eb4b-4534-9323-79373a290595-mower.jpg",
         date_created: Date.now(),
       },
     ],
