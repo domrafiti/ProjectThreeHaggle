@@ -1,6 +1,8 @@
 * {
   font-family: "Karantina", cursive;
 }
+
+/* NAV BAR */
 .nav-div {
   color: black;
   font-size: 2rem !important;
@@ -10,22 +12,28 @@
   font-size: 3rem !important;
 }
 
+/* HEADER */
 header {
   background: #708090;
   padding: 100px !important;
   border-bottom: 3px solid black;
 }
 
+/* Body and background image */
+
 body {
   background-image: url("/images/woodbackground.png");
   background-size: auto;
 }
 
+/* Container */
 .container {
   padding: 20px;
   background: #f5f5f5;
   border: 1px solid #2f5881;
 }
+
+/* Buttons  */
 
 .btn.btn-primary {
   border-color: aliceblue;
@@ -38,6 +46,7 @@ body {
   margin-top: 5px;
 }
 
+/* Profile */
 .welcome,
 h1 {
   float: left;
@@ -49,9 +58,12 @@ h1 {
   width: 250px;
 }
 
+/* Current listing profile button */
 #current-listing {
   bottom: 5px;
 }
+
+/*  single listing profile button*/
 
 #single-listing {
   float: left !important;
@@ -59,6 +71,7 @@ h1 {
   margin-top: 5px;
 }
 
+/* Carousel main page  */
 .carousel-custom {
   max-width: 800px;
 }
@@ -66,6 +79,8 @@ h1 {
 .carousel-caption-custom {
   background: rgba(0, 0, 0, 0.5);
 }
+
+/* listing photo */
 
 .my-listing-photo {
   max-height: 180px;
@@ -86,6 +101,64 @@ h1 {
   color: #065b83;
   text-decoration: underline;
 }
+
+/*  Log in sign up form */
+form {
+  width: 100%;
+}
+
+form .form-group {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
+}
+
+form .form-input,
+form .form-textarea {
+  display: block;
+}
+
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
+}
+
+form label,
+form .form-label {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0.625rem 0 0.25rem 0.3rem;
+}
+
+form .form-input {
+  width: 90%;
+  padding: 0.75rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin: auto;
+  font-size: 1.2rem;
+  border: 1px solid #484848;
+  border-radius: 0.3rem;
+}
+
+form .form-input.form-input-squared {
+  border-radius: 0;
+}
+
+form [type='checkbox'],
+form [type='radio'] {
+  display: inline-block;
+}
+
+label form [type='checkbox'],
+label form [type='radio'] {
+  display: inline-block;
+}
+
 
 .dollar-amount {
   color: #056605;

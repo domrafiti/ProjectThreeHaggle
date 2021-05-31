@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
+import "./jass.css"
+import "./haggle.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

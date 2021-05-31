@@ -1,36 +1,56 @@
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 1em !important;
+form {
+  width: 100%;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+form .form-group {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
-
-#listing-div-edit {
-  display: none;
-}
-
-.show-it {
+form .form-input,
+form .form-textarea {
   display: block;
 }
 
-.hide-it {
-  display: none;
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
 }
-.btn.btn-danger {
-  background-color: #a52a2a;
-  float: right;
+
+form label,
+form .form-label {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0.625rem 0 0.25rem 0.3rem;
 }
+
+form .form-input {
+  width: 90%;
+  padding: 0.75rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin: auto;
+  font-size: 1.2rem;
+  border: 1px solid #484848;
+  border-radius: 0.3rem;
+}
+
+form .form-input.form-input-squared {
+  border-radius: 0;
+}
+
+form [type='checkbox'],
+form [type='radio'] {
+  display: inline-block;
+}
+
+label form [type='checkbox'],
+label form [type='radio'] {
+  display: inline-block;
+}
+

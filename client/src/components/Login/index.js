@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.css";
-import "./jass.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./haggle.css";
+
 
 export function Login() {
   return (

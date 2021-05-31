@@ -1,14 +1,14 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* ! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-html {
+html { 
   line-height: 1.15;
   /* 1 */
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; 
   /* 2 */
 }
 
@@ -154,13 +154,13 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  /* 1 */
+
   font-size: 100%;
-  /* 1 */
+  
   line-height: 1.15;
-  /* 1 */
+  
   margin: 0;
-  /* 2 */
+  
 }
 
 /**
@@ -1109,61 +1109,6 @@ a:hover {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
-form {
-  width: 100%;
-}
-
-form .form-group {
-  display: block;
-  width: 100%;
-  margin: 0.625rem 0;
-}
-
-form .form-input,
-form .form-textarea {
-  display: block;
-}
-
-form select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-  background-repeat: no-repeat;
-  background-position-x: 98%;
-  background-position-y: 50%;
-}
-
-form label,
-form .form-label {
-  display: inline-block;
-  font-size: 1.2rem;
-  margin: 0.625rem 0 0.25rem 0.3rem;
-}
-
-form .form-input {
-  width: 90%;
-  padding: 0.75rem;
-  color: #1a1a1a;
-  background-color: #ffffff;
-  margin: auto;
-  font-size: 1.2rem;
-  border: 1px solid #484848;
-  border-radius: 0.3rem;
-}
-
-form .form-input.form-input-squared {
-  border-radius: 0;
-}
-
-form [type='checkbox'],
-form [type='radio'] {
-  display: inline-block;
-}
-
-label form [type='checkbox'],
-label form [type='radio'] {
-  display: inline-block;
-}
 
 .container {
   width: 85%;
