@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
-import "./haggle.css";
+
 
 export function Listing() {
   const [users, setUsers] = useState([]);
