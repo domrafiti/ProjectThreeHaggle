@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 // import API: function to connect with database
+import "./style.css";
+import "./jass.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./haggle.css";
 
 export function Login() {
   // Setting our component's initial state

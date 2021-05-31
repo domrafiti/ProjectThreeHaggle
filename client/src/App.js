@@ -2,16 +2,18 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
+import Footer from "./components/Footer";
 import Listing from "./components/Listing";
 import Listings from "./components/Listings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div>
+    <div className="flex-column justify-space-around">
       <Nav />
       <Router>
         <Switch>
@@ -38,6 +40,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );
