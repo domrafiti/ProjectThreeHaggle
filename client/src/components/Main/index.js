@@ -4,7 +4,7 @@ import API from "../../utils/API";
 function Main() {
   // Setting our component's initial state
   const [users, setUsers] = useState([]);
-  const [formObject, setFormObject] = useState({});
+  // const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
