@@ -27,7 +27,8 @@ const userSeed = [
         description: "Clean ya up real nice",
         status: "Active",
         category: "Services",
-        image_path: "uploads/1f0be074-82a7-4950-82de-5f27ed7089ae-haircut.jpg",
+        image_path:
+          "http://localhost:3000/uploads/1f0be074-82a7-4950-82de-5f27ed7089ae-haircut.jpg",
         date_created: Date.now(),
       },
       {
@@ -64,8 +65,7 @@ const userSeed = [
       {
         listing_id: uuid(),
         title: "Electric Guitar",
-        description:
-          "Like an acoustic guitar, but better!",
+        description: "Like an acoustic guitar, but better!",
         status: "Active",
         category: "Instrument",
         image_path: "uploads/pexels-pixabay-164774.jpg",
@@ -95,11 +95,11 @@ const userSeed = [
       {
         listing_id: uuid(),
         title: "Babe Ruth Baseball Card",
-        description:
-          "Mint condition, never opened",
+        description: "Mint condition, never opened",
         status: "Active",
         category: "Collectables",
-        image_path: "uploads/https___blogs-images.forbes.com_davidseideman_files_2016_12_Ruth-resized.jpg",
+        image_path:
+          "uploads/https___blogs-images.forbes.com_davidseideman_files_2016_12_Ruth-resized.jpg",
         date_created: Date.now(),
       },
     ],
@@ -124,9 +124,8 @@ const userSeed = [
         date_created: Date.now(),
       },
     ],
-  }
+  },
 ];
-
 
 db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeed))
