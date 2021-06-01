@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 // import API: function to connect with database
-import "./style.css";
-import "./jass.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./haggle.css";
+
+
 
 export function Login() {
   // Setting our component's initial state
@@ -43,31 +41,33 @@ export function Login() {
 
 
   return (
-    <div className="row">
-      <div className="col-md-6">
-        <h2>Login</h2>
+    <main className="container container-fluid ">
+      <div className="row">
+        <div className="col-md-6">
+          <h2>Login</h2>
 
-        <form className="form login-form">
-          <div className="form-group">
-            <label htmlFor="email-login">email:</label>
-            <input className="form-input" type="text" id="email-login" name="email" onChange={handleInputChange} />
+          <form className="form login-form">
+            <div className="form-group">
+              <label htmlFor="email-login">email:</label>
+              <input className="form-input" type="text" id="email-login" name="email" onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password-login">password:</label>
+              <input className="form-input" type="password" id="password-login" name="password" onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>login</button>
+            </div>
+          </form>
+          <div>
+            <p>Don't have an account?</p>
+            <Link to="/signup">
+              <button className="btn btn-primary">Sign-up</button>
+            </Link>
           </div>
-          <div className="form-group">
-            <label htmlFor="password-login">password:</label>
-            <input className="form-input" type="password" id="password-login" name="password" onChange={handleInputChange} />
-          </div>
-          <div className="form-group">
-            <button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>login</button>
-          </div>
-        </form>
-        <div>
-          <p>Don't have an account?</p>
-          <Link to="/signup">
-            <button className="btn btn-primary">Sign-up</button>
-          </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

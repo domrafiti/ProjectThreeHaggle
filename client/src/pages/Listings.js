@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../../utils/API";
-import "./haggle.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import API from "../utils/API";
 
 function Listings() {
   // Setting our component's initial state

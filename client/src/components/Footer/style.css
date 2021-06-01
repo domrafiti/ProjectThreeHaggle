@@ -1,0 +1,15 @@
+.footer {
+
+    text-align: center;
+    position: fixed !important;
+    bottom: 0 ;
+    width: 100%;
+    height: auto ;
+    line-height: auto ;
+    margin-bottom: 0 ;
+    margin-top: 0 ;
+    font-size: large;
+    background: #708090 !important;
+    border-top: 3px solid black;
+
+}
