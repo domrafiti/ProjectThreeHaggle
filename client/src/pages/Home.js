@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import API from "../../utils/API";
-import "./haggle.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import API from "../utils/API";
 import handshake from "./handshake.jpeg";
-function Main() {
+
+function Home() {
   // Setting our component's initial state
   const [users, setUsers] = useState([]);
-  const [formObject, setFormObject] = useState({});
+  // const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -21,7 +20,8 @@ function Main() {
   }
 
   return (
-    <main className="container container-fluid my-5 carousel-custom">
+    
+    <main className="container container-fluid my-5 carousel-custom car-img" >
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -84,6 +84,7 @@ function Main() {
         </button>
       </div>
     </main>
+    
   );
 }
-export default Main;
+export default Home;
