@@ -2,28 +2,17 @@
   font-family: "Karantina", cursive;
 }
 
-/* NAV BAR */
-.nav-div {
-  color: black;
-  font-size: 2rem !important;
-}
-.nav-btn {
-  color: white !important;
-  font-size: 3rem !important;
-}
-
-/* HEADER */
-header {
-  background: #708090;
-  padding: 100px !important;
-  border-bottom: 3px solid black;
-}
 
 /* Body and background image */
 
+
 body {
   background-image: url("/images/woodbackground.png");
-  background-size: auto;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: no-repeat;
 }
 
 /* Container */
@@ -31,6 +20,7 @@ body {
   padding: 20px;
   background: #f5f5f5;
   border: 1px solid #2f5881;
+
 }
 
 /* Buttons  */
@@ -72,12 +62,20 @@ h1 {
 }
 
 /* Carousel main page  */
-.carousel-custom {
-  max-width: 800px;
+
+.car-img {
+  width:100% !important;
+  max-height: 700px !important;
+  
+}
+
+.carousel-inner .d-block{
+  max-height: 650px !important;
 }
 
 .carousel-caption-custom {
   background: rgba(0, 0, 0, 0.5);
+
 }
 
 /* listing photo */
@@ -102,7 +100,29 @@ h1 {
   text-decoration: underline;
 }
 
-/*  Log in sign up form */
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+#listing-div-edit {
+  display: none;
+}
+
+.show-it {
+  display: block;
+}
+
+.hide-it {
+  display: none;
+}
+
+.btn.btn-danger {
+  background-color: #a52a2a;
+  float: right;
+}
+/* Sign up log in page */
 form {
   width: 100%;
 }
@@ -149,6 +169,7 @@ form .form-input.form-input-squared {
   border-radius: 0;
 }
 
+
 form [type='checkbox'],
 form [type='radio'] {
   display: inline-block;
@@ -160,27 +181,6 @@ label form [type='radio'] {
 }
 
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
-
-#listing-div-edit {
-  display: none;
-}
-
-.show-it {
-  display: block;
-}
-
-.hide-it {
-  display: none;
-}
-.btn.btn-danger {
-  background-color: #a52a2a;
-  float: right;
-}
 
 @media only screen and (max-width: 768px) {
   #listing-create {
@@ -206,6 +206,7 @@ label form [type='radio'] {
     margin-top: 20px;
   }
 }
+
 
 @media only screen and (max-width: 560px) {
   .nav-btn {
