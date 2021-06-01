@@ -5,18 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import handshake from "./handshake.jpeg";
 function Main() {
   // Setting our component's initial state
-  const [users, setUsers] = useState([]);
+  const [listings, setListings] = useState([]);
   // const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadUsers();
+    loadListings();
   }, []);
 
   // Loads all books and sets them to books
-  function loadUsers() {
+  function loadListings() {
     API.getListings()
-      .then((res) => setUsers(res.data))
+      .then((res) => setListings(res.data))
       .catch((err) => console.log(err));
   }
 
@@ -40,21 +40,17 @@ function Main() {
             </div>
           </div>
 
-          {users.map((user) => (
-            <div key={user._id}>
-              {user.listings.map((listing) => (
-                <div className="carousel-item">
-                  <img
-                    src={listing.image_path}
-                    className="d-block w-100"
-                    alt="..."
-                  />
-                  <div className="carousel-caption carousel-caption-custom">
-                    <h5>{listing.title}</h5>
-                    <p>{listing.description}</p>
-                  </div>
-                </div>
-              ))}
+          {listings.map((listing) => (
+            <div className="carousel-item" key={listing._id}>
+              <img
+                src={listing.image_path}
+                className="d-block w-100"
+                alt="..."
+              />
+              <div className="carousel-caption carousel-caption-custom">
+                <h5>{listing.title}</h5>
+                <p>{listing.description}</p>
+              </div>
             </div>
           ))}
         </div>

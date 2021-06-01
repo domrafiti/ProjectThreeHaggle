@@ -8,15 +8,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.Listings._id
-      .findById({
-        listings: {
-          $elemMatch: {
-            _id: req.params.id,
-          },
-        },
-      })
-      .then((dbModel) => console.log(dbModel))
+    db.Listings.findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
