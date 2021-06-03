@@ -9,8 +9,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
-// import "./jass.css"
-import "./haggle.css"
+import "./haggle.css";
 
 function App() {
   return (
@@ -28,7 +27,7 @@ function App() {
           <Route exact path="/listings/:id">
             <Listing />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/profile/:id">
             <Profile />
           </Route>
           <Route exact path="/login">
