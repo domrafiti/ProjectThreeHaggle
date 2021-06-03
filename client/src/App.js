@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
+import FileUpload from "./components/Upload"
+import FileUploadMany from "./components/UploadMany"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
           {/* Logged in routing here */}
           <Route exact path="/">
             <Main />
+            <FileUpload />
+            <FileUploadMany />
           </Route>
           <Route exact path="/listings">
             <Listings />
@@ -35,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/upload">
+            <FileUpload />
           </Route>
           <Route>
             <NoMatch />
