@@ -7,10 +7,11 @@ import Listing from "./components/Listing";
 import Listings from "./pages/Listings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Profile from "./components/Profile";
+import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
-// import "./jass.css"
 import "./haggle.css"
+
+
 
 function App() {
   return (
