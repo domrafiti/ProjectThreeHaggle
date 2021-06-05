@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
-import API from "../../utils/API";
-import "./haggle.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import API from "../utils/API";
 import handshake from "./handshake.jpeg";
-function Main() {
+
+function Home() {
   // Setting our component's initial state
-  const [users, setUsers] = useState([]);
+  const [listings, setListings] = useState([]);
   // const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadUsers();
+    loadListings();
   }, []);
 
   // Loads all books and sets them to books
-  function loadUsers() {
+  function loadListings() {
     API.getListings()
-      .then((res) => setUsers(res.data))
+      .then((res) => setListings(res.data))
       .catch((err) => console.log(err));
   }
 
   return (
-    <main className="container container-fluid my-5 carousel-custom">
+    
+    <main className="container container-fluid my-5 carousel-custom car-img" >
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -40,21 +40,17 @@ function Main() {
             </div>
           </div>
 
-          {users.map((user) => (
-            <div key={user._id}>
-              {user.listings.map((listing) => (
-                <div className="carousel-item">
-                  <img
-                    src={listing.image_path}
-                    className="d-block w-100"
-                    alt="..."
-                  />
-                  <div className="carousel-caption carousel-caption-custom">
-                    <h5>{listing.title}</h5>
-                    <p>{listing.description}</p>
-                  </div>
-                </div>
-              ))}
+          {listings.map((listing) => (
+            <div className="carousel-item" key={listing._id}>
+              <img
+                src={listing.image_path}
+                className="d-block w-100"
+                alt="..."
+              />
+              <div className="carousel-caption carousel-caption-custom">
+                <h5>{listing.title}</h5>
+                <p>{listing.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -84,6 +80,7 @@ function Main() {
         </button>
       </div>
     </main>
+    
   );
 }
-export default Main;
+export default Home;
