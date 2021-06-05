@@ -21,16 +21,16 @@
   "dependencies": {
     "aws-sdk": "^2.919.0",
     "axios": "^0.21.1",
-    "express": "^4.17.1",
     "bootstrap": "^5.0.1",
     "bootstrap-icons": "^1.5.0",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
     "jquery": "^3.6.0",
     "mongoose": "^5.3.16",
-    "react-bootstrap": "^1.6.0",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "path": "^0.12.7",
+    "react-bootstrap": "^1.6.0",
     "uuid": "^8.3.2"
   },
   "repository": {
