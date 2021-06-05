@@ -25,10 +25,9 @@ function App() {
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
-            <Main />
+            <Home />
             <FileUpload />
             <FileUploadMany />
-            <Home />
           </Route>
           <Route exact path="/listings">
             <Listings />
