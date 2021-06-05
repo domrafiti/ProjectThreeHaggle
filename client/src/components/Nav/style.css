@@ -1,6 +1,7 @@
 .nav-div {
     color: black;
     font-size: 2rem !important;
+    
 }
 
 .nav-btn {
@@ -10,10 +11,14 @@
 
 /* HEADER */
 header {
-    background: #708090;
+    background:transparent;
     padding: 100px !important;
-    border-bottom: 3px solid black;
     margin-bottom: 20px;
+}
+
+#haggle{
+ font-weight: 900;
+ font-size: 65px !important;
 }
 
 .justify-space-between {
