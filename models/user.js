@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const uuid = require("uuid").v4;
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true },
+  username: { type: String, required: true },
   password: { type: String, required: true }, // hashing???
   picture_path: { type: String, required: true },
   total_ratings: [],

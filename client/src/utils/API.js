@@ -4,7 +4,7 @@ export default {
   // Gets all books
   getListings: function () {
     console.log("get listings");
-    return axios.get("/api/users");
+    return axios.get("/api/res.data");
   },
   // Gets the book with the given id
   getListing: function (id) {
