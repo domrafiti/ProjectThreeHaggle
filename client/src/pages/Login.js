@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD:client/src/components/Login/index.js
 import axios from "axios";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./haggle.css";
+=======
+import { Redirect } from "react-router-dom";
+// import API: function to connect with database
+
+
+>>>>>>> 33b9de1ef498a478af8881a966c9d31b582bb38a:client/src/pages/Login.js
 
 export function Login() {
   // Setting our component's initial state
@@ -35,10 +42,12 @@ export function Login() {
   };
 
   return (
-    <div className="row">
-      <div className="col-md-6">
-        <h2>Login</h2>
+    <main className="container container-fluid ">
+      <div className="row">
+        <div className="col-md-6">
+          <h2>Login</h2>
 
+<<<<<<< HEAD:client/src/components/Login/index.js
         {/* <form className="form login-form"> */}
         <div className="form-group">
           <label htmlFor="email-login">email:</label>
@@ -57,6 +66,27 @@ export function Login() {
           <Link to="/signup">
             <button className="btn btn-primary">Sign-up</button>
           </Link>
+=======
+          <form className="form login-form">
+            <div className="form-group">
+              <label htmlFor="email-login">email:</label>
+              <input className="form-input" type="text" id="email-login" name="email" onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password-login">password:</label>
+              <input className="form-input" type="password" id="password-login" name="password" onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>login</button>
+            </div>
+          </form>
+          <div>
+            <p>Don't have an account?</p>
+            <Link to="/signup">
+              <button className="btn btn-primary">Sign-up</button>
+            </Link>
+          </div>
+>>>>>>> 33b9de1ef498a478af8881a966c9d31b582bb38a:client/src/pages/Login.js
         </div>
 
         <div>
@@ -65,7 +95,7 @@ export function Login() {
         </div>
 
       </div>
-    </div>
+    </main>
   );
 }
 
