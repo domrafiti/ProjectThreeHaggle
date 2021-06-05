@@ -9,6 +9,9 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
+import FileUpload from "./components/Upload"
+import FileUploadMany from "./components/UploadMany"
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./haggle.css";
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
+            <Main />
+            <FileUpload />
+            <FileUploadMany />
             <Home />
           </Route>
           <Route exact path="/listings">
@@ -35,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          <Route exact path="/upload">
+            <FileUpload />
           </Route>
           <Route>
             <NoMatch />
