@@ -1,33 +1,48 @@
 * {
-  font-family: "Karantina", cursive;
+  /* font-family: "Karantina", cursive; */
+  font-family: 'Merriweather Sans', sans-serif;
+
 }
 
 
 /* Body and background image */
-
-
-body {
-  background-image: url("/images/woodbackground.png");
-  background-size: cover;
+body { 
+  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./pages/handshake.jpg") no-repeat center center fixed ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-image: no-repeat;
+  background-size: cover;
+  min-height:100vh;
+  
 }
+
+
 
 /* Container */
-.container {
-  padding: 20px;
-  background: #f5f5f5;
-  border: 1px solid #2f5881;
+.car-img {
+  padding: 3px;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  
 
 }
+
+.carousel-container {
+  padding: 20px;
+  background: transparent;
+  
+
+}
+
+
 
 /* Buttons  */
 
 .btn.btn-primary {
   border-color: aliceblue;
-  background-color: #d2691e;
+  background-color: #708090;
   font-size: 24px;
 }
 
@@ -63,9 +78,10 @@ h1 {
 
 /* Carousel main page  */
 
-.car-img {
+.carousel-item img{
   width:100% !important;
-  max-height: 700px !important;
+  height: 350px;
+  max-height: 350px !important;
   
 }
 

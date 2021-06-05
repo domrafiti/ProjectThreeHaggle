@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
+import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Listing from "./components/Listing";
 import Listings from "./pages/Listings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Profile from "./components/Profile";
+import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import FileUpload from "./components/Upload"
 import FileUploadMany from "./components/UploadMany"
@@ -17,8 +18,10 @@ import "./haggle.css";
 function App() {
   return (
     <div className="flex-column justify-space-around ">
-      <Nav />
+
       <Router>
+        <Nav />
+
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
