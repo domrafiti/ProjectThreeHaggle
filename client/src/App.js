@@ -1,33 +1,33 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
-import Main from "./components/Main";
+import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Listing from "./components/Listing";
-import Listings from "./components/Listings";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Listings from "./pages/Listings";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Profile from "./components/Profile";
 import NoMatch from "./pages/NoMatch";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./haggle.css";
 
 function App() {
   return (
-    <div className="flex-column justify-space-around">
+    <div className="flex-column justify-space-around ">
       <Nav />
       <Router>
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
-            <Main />
+            <Home />
           </Route>
           <Route exact path="/listings">
             <Listings />
           </Route>
-          <Route exact path="/listing/:id">
+          <Route exact path="/listings/:id">
             <Listing />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/profile/:id">
             <Profile />
           </Route>
           <Route exact path="/login">

@@ -1,0 +1,33 @@
+.nav-div {
+    color: black;
+    font-size: 2rem !important;
+}
+
+.nav-btn {
+    color: white !important;
+    font-size: 3rem !important;
+}
+
+/* HEADER */
+header {
+    background: #708090;
+    padding: 100px !important;
+    border-bottom: 3px solid black;
+    margin-bottom: 20px;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.display-flex {
+    display: flex !important;
+}
+
+.p-2 {
+    padding: 0.625rem;
+}
