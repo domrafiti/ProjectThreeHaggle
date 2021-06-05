@@ -1,77 +1,72 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-// import API: function to connect with database
-
+import axios from "axios";
 
 export function Signup() {
   // Setting our component's initial state
-  const [credentials, setCredentials] = useState({
-    name: "",
-    email: "",
-    password: ""
-    // How do we store user image?
-  })
-
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setCredentials({ ...credentials, [name]: value })
+  const [registerName, setRegisterName] = useState("");
+  const [registerUsername, setRegisterUsername] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [data, setData] = useState(null);
+  const register = () => {
+    axios({
+      method: "POST",
+      data: {
+        name: registerName,
+        username: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
+      url: "http://localhost:3000/register",
+    })
+      .then((res) => console.log(res));
   };
-
-  // Handles credential verification when submit button is clicked
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (credentials.email === "" || credentials.password === "" || credentials.name === "") {
-      alert("Please enter a name, email, and password")
-    } else {
-      alert("Account created!")
-      // Need to create login credentials with database
-
-      setCredentials({
-        name: "",
-        email: "",
-        password: ""
-      })
-
-      // Need to redirect user to their account page
-      return <Redirect to="/profile" />
-    }
+  const getUser = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:3000/user",
+    })
+      .then((res) => {
+        setData(res.data);
+        console.log(data);
+      });
   };
-
-  // Function to create login credentials goes here
 
   return (
-    <div className="container container-fluid my-5 carousel-custom">
-      <div className="row">
-        <div className="col-md-6">
-          <h2>Signup</h2>
-          <form className="form signup-form" id="upload-profile-photos" action="/api/users" method="post"
-            encType="multipart/form-data">
+    <div className="row">
+      <div className="col-md-6">
+        <h2>Sign-up</h2>
+        {/* <form className="form signup-form" id="upload-profile-photos" action="/api/users" method="post"
+          encType="multipart/form-data"> */}
 
-            <label htmlFor="name-signup">name:</label>
-            <input className="form-input" type="text" name="name" id="name-signup" onChange={handleInputChange} />
+        <label htmlFor="name-signup">name:</label>
+        <input className="form-input" type="text" id="name-signup" onChange={e => setRegisterName(e.target.value)} />
 
-            <label htmlFor="email-signup">email:</label>
-            <input className="form-input" type="text" name="email" id="email-signup" onChange={handleInputChange} />
+        <label htmlFor="email-signup">email:</label>
+        <input className="form-input" type="text" id="email-signup" onChange={e => setRegisterUsername(e.target.value)} />
 
-            <label htmlFor="password-signup">password:</label>
-            <input className="form-input" type="password" name="password" id="password-signup" onChange={handleInputChange} />
+        <label htmlFor="password-signup">password:</label>
+        <input className="form-input" type="password" id="password-signup" onChange={e => setRegisterPassword(e.target.value)} />
 
-            <label htmlFor="profile-photos-input">Browse an image to upload</label>
-            <input id="profile-photos" type="file" name="bruce-wayne" multiple />
-            <br />
-            <button className="btn btn-primary" type="submit" onClick={handleFormSubmit}>signup</button>
-          </form>
-          <div>
-            <p>Already have an account?</p>
-            <Link to="/login">
-              <button className="btn btn-primary">Login</button>
-            </Link>
-          </div>
+        <label htmlFor="profile-photos-input">Browse htmlFor an image to upload</label>
+        <input id="profile-photos" type="file" name="bruce-wayne" multiple />
+        <br />
+        <button className="btn btn-primary" type="submit" onClick={register}>Sign-up</button>
+        {/* </form> */}
+        <div>
+          <p>Already have an account?</p>
+          <Link to="/login">
+            <button className="btn btn-primary">Login</button>
+          </Link>
         </div>
-      </div>
 
+        <div>
+          <p>Get User</p>
+          <button onClick={getUser}>Submit</button>
+        </div>
+
+      </div>
     </div>
   );
 }

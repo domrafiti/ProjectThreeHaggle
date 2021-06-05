@@ -4,11 +4,7 @@ export default {
   // Gets all listings
   getListings: function () {
     console.log("get listings");
-<<<<<<< HEAD
-    return axios.get("/api/res.data");
-=======
     return axios.get("/api/listings");
->>>>>>> 33b9de1ef498a478af8881a966c9d31b582bb38a
   },
   // Gets the listing with the given id
   getListing: function (id) {
