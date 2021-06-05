@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "../components/MyListBtn"
-import BioImg from "../components/BioImg"
+import Button from "../components/MyListBtn";
+import BioImg from "../components/BioImg";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
-
-
 
 export function Profile() {
   const [listings, setListings] = useState([]);
@@ -37,7 +35,7 @@ export function Profile() {
         <br />
         <img src={users.picture_path} style={{ width: "250px" }} />
       </p>
-      {listings
+      {/* {listings
         .filter((listing) => listing.user_id.includes(users.name))
         .map((mylisting) => (
           <div
@@ -74,10 +72,9 @@ export function Profile() {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
     </div>
   );
 }
 
 export default Profile;
-
