@@ -10,25 +10,23 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
-import FileUpload from "./components/Upload"
-import FileUploadMany from "./components/UploadMany"
+import FileUpload from "./components/Upload";
+import FileUploadMany from "./components/UploadMany";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./haggle.css";
 
 function App() {
   return (
     <div className="flex-column justify-space-around ">
-
       <Router>
         <Nav />
 
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
-            <Main />
+            <Home />
             <FileUpload />
             <FileUploadMany />
-            <Home />
           </Route>
           <Route exact path="/listings">
             <Listings />
