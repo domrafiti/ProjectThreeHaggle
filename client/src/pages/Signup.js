@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
-// import API: function to connect with database
+import { Link } from "react-router-dom";
 import axios from "axios";
 import API from "../utils/API";
 
@@ -16,19 +15,17 @@ export function Signup() {
       username: registerUsername,
       password: registerPassword,
       withCredentials: true,
-    })
-      .then((res) => console.log(res));
+    }).then((res) => console.log(res));
   };
   const getUser = () => {
     axios({
       method: "GET",
       withCredentials: true,
       url: "http://localhost:3000/user",
-    })
-      .then((res) => {
-        setData(res.data);
-        console.log(data);
-      });
+    }).then((res) => {
+      setData(res.data);
+      console.log(data);
+    });
   };
 
   return (
@@ -39,18 +36,37 @@ export function Signup() {
           encType="multipart/form-data"> */}
 
         <label htmlFor="name-signup">name:</label>
-        <input className="form-input" type="text" id="name-signup" onChange={e => setRegisterName(e.target.value)} />
+        <input
+          className="form-input"
+          type="text"
+          id="name-signup"
+          onChange={(e) => setRegisterName(e.target.value)}
+        />
 
         <label htmlFor="email-signup">email:</label>
-        <input className="form-input" type="text" id="email-signup" onChange={e => setRegisterUsername(e.target.value)} />
+        <input
+          className="form-input"
+          type="text"
+          id="email-signup"
+          onChange={(e) => setRegisterUsername(e.target.value)}
+        />
 
         <label htmlFor="password-signup">password:</label>
-        <input className="form-input" type="password" id="password-signup" onChange={e => setRegisterPassword(e.target.value)} />
+        <input
+          className="form-input"
+          type="password"
+          id="password-signup"
+          onChange={(e) => setRegisterPassword(e.target.value)}
+        />
 
-        <label htmlFor="profile-photos-input">Browse htmlFor an image to upload</label>
+        <label htmlFor="profile-photos-input">
+          Browse htmlFor an image to upload
+        </label>
         <input id="profile-photos" type="file" name="bruce-wayne" multiple />
         <br />
-        <button className="btn btn-primary" type="submit" onClick={register}>Sign-up</button>
+        <button className="btn btn-primary" type="submit" onClick={register}>
+          Sign-up
+        </button>
         {/* </form> */}
         <div>
           <p>Already have an account?</p>
@@ -63,7 +79,6 @@ export function Signup() {
           <p>Get User</p>
           <button onClick={getUser}>Submit</button>
         </div>
-
       </div>
     </div>
   );
