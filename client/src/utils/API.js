@@ -3,7 +3,6 @@ import axios from "axios";
 export default {
   // Gets all listings
   getListings: function () {
-    console.log("get listings");
     return axios.get("/api/listings");
   },
   // Gets the listing with the given id

@@ -25,8 +25,8 @@ const listingSchema = new Schema({
     type: String,
   },
   user_id: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   image_path: [],
 });

@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Haggle", {
 const userSeed = [
   {
     name: "Dom",
-    email: "dom.rafiti@gmail.com",
+    username: "dom.rafiti@gmail.com",
     password: "password12345",
     picture_path: "/uploads/tyler-nix-ZGa9d1a_4tA-unsplash.jpg",
     total_ratings: ["3", "4", "4"],
@@ -23,7 +23,7 @@ const userSeed = [
   },
   {
     name: "Giovany",
-    email: "giochavez320@gmail.com",
+    username: "giochavez320@gmail.com",
     password: "password12345",
     picture_path: "/uploads/albert-dera-ILip77SbmOE-unsplash.jpg",
     total_ratings: ["4", "4", "5"],
@@ -33,7 +33,7 @@ const userSeed = [
   },
   {
     name: "Keith",
-    email: "keithblack4290@gmail.com",
+    username: "keithblack4290@gmail.com",
     password: "password12345",
     picture_path: "/uploads/karsten-winegeart-kWm6bXPJl4s-unsplash.jpg",
     total_ratings: ["1", "1", "1"],
@@ -43,7 +43,7 @@ const userSeed = [
   },
   {
     name: "Brice",
-    email: "brice.huisken@gmail.com",
+    username: "brice.huisken@gmail.com",
     password: "password12345",
     picture_path: "/uploads/ben-parker-NohB3FJSY90-unsplash.jpg",
     total_ratings: ["3", "3", "3"],
