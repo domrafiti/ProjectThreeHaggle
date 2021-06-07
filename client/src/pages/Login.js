@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./style.css";
+// import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./haggle.css";
+// import "./haggle.css";
 
 export function Login() {
   // Setting our component's initial state

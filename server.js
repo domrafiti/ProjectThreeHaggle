@@ -52,17 +52,21 @@ app.post("/login", (req, res, next) => {
     }
   })(req, res, next);
 });
-app.post("/register", (req, res) => {
+app.post("/api/users", (req, res) => {
+  console.log("first place")
   User.findOne({ username: req.body.username }, async (err, doc) => {
+    console.log("Second place")
     if (err) throw err;
     if (doc) res.send("User already exists");
     if (!doc) {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
       const newUser = new User({
+        name: req.body.name,
         username: req.body.username,
         password: hashedPassword,
       });
+      console.log("Third place")
       await newUser.save();
       res.send("User created")
     }

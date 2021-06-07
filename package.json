@@ -21,17 +21,12 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-<<<<<<< HEAD
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-=======
-    "bootstrap": "^5.0.1",
-    "express": "^4.16.3",
->>>>>>> 33b9de1ef498a478af8881a966c9d31b582bb38a
     "if-env": "^1.0.4",
     "mongoose": "^5.12.13",
     "passport": "^0.4.1",
