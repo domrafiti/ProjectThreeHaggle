@@ -24,7 +24,7 @@ const listingSchema = new Schema({
   status: {
     type: String,
   },
-  user_id: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },

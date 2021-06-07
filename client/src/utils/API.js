@@ -20,6 +20,10 @@ export default {
   getUsers: function () {
     return axios.get("/api/users");
   },
+  createUser: function () {
+    return axios.post("/api/users");
+  },
+
   getUser: function (id) {
     return axios.get("/api/users/" + id);
   },

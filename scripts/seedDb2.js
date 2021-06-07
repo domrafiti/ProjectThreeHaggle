@@ -8,11 +8,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Haggle", {
   useCreateIndex: true,
 });
 
+// Start DOM
 db.User.updateOne(
-  { _id: "60bb0b6ffc11d14d8d0430fb" },
+  { _id: "60bbb622327efa38ad75ce94" },
   {
     $set: {
-      listings: ["60bb0b6ffc11d14d8d0430ff", "60bb0b6ffc11d14d8d043100"],
+      listings: ["60bbb622327efa38ad75ce98", "60bbb622327efa38ad75ce99"],
     },
   }
 )
@@ -25,10 +26,10 @@ db.User.updateOne(
   });
 
 db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d0430ff" },
+  { _id: "60bbb622327efa38ad75ce98" },
   {
     $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fb",
+      user: "60bbb622327efa38ad75ce94",
     },
   }
 )
@@ -41,10 +42,10 @@ db.Listings.updateOne(
   });
 
 db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043100" },
+  { _id: "60bbb622327efa38ad75ce99" },
   {
     $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fb",
+      user: "60bbb622327efa38ad75ce94",
     },
   }
 )
@@ -56,59 +57,13 @@ db.Listings.updateOne(
     process.exit(1);
   });
 
-db.User.updateOne(
-  { _id: "60bb0b6ffc11d14d8d0430fc" },
-  {
-    $set: {
-      listings: ["60bb0b6ffc11d14d8d043101", "60bb0b6ffc11d14d8d043102"],
-    },
-  }
-)
-  .then((data) => {
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
-
-db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043101" },
-  {
-    $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fc",
-    },
-  }
-)
-  .then((data) => {
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
-
-db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043102" },
-  {
-    $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fc",
-    },
-  }
-)
-  .then((data) => {
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+// Start Giovany
 
 db.User.updateOne(
-  { _id: "60bb0b6ffc11d14d8d0430fd" },
+  { _id: "60bbb622327efa38ad75ce95" },
   {
     $set: {
-      listings: ["60bb0b6ffc11d14d8d043103", "60bb0b6ffc11d14d8d043104"],
+      listings: ["60bbb622327efa38ad75ce9a", "60bbb622327efa38ad75ce9b"],
     },
   }
 )
@@ -121,10 +76,10 @@ db.User.updateOne(
   });
 
 db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043103" },
+  { _id: "60bbb622327efa38ad75ce9a" },
   {
     $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fd",
+      user: "60bbb622327efa38ad75ce95",
     },
   }
 )
@@ -137,10 +92,10 @@ db.Listings.updateOne(
   });
 
 db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043104" },
+  { _id: "60bbb622327efa38ad75ce9b" },
   {
     $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fd",
+      user: "60bbb622327efa38ad75ce95",
     },
   }
 )
@@ -151,12 +106,14 @@ db.Listings.updateOne(
     console.error(err);
     process.exit(1);
   });
+
+// Start Keith
 
 db.User.updateOne(
-  { _id: "60bb0b6ffc11d14d8d0430fe" },
+  { _id: "60bbb622327efa38ad75ce96" },
   {
     $set: {
-      listings: ["60bb0b6ffc11d14d8d043105"],
+      listings: ["60bbb622327efa38ad75ce9c", "60bbb622327efa38ad75ce9d"],
     },
   }
 )
@@ -169,10 +126,60 @@ db.User.updateOne(
   });
 
 db.Listings.updateOne(
-  { _id: "60bb0b6ffc11d14d8d043105" },
+  { _id: "60bbb622327efa38ad75ce9c" },
   {
     $set: {
-      user_id: "60bb0b6ffc11d14d8d0430fe",
+      user: "60bbb622327efa38ad75ce96",
+    },
+  }
+)
+  .then((data) => {
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.Listings.updateOne(
+  { _id: "60bbb622327efa38ad75ce9d" },
+  {
+    $set: {
+      user: "60bbb622327efa38ad75ce96",
+    },
+  }
+)
+  .then((data) => {
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+// Start Brice
+
+db.User.updateOne(
+  { _id: "60bbb622327efa38ad75ce97" },
+  {
+    $set: {
+      listings: ["60bbb622327efa38ad75ce9e"],
+    },
+  }
+)
+  .then((data) => {
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.Listings.updateOne(
+  { _id: "60bbb622327efa38ad75ce9e" },
+  {
+    $set: {
+      user: "60bbb622327efa38ad75ce97",
     },
   }
 )
