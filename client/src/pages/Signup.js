@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import API from "../utils/API";
 
 export function Signup() {
   // Setting our component's initial state
@@ -9,15 +10,11 @@ export function Signup() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [data, setData] = useState(null);
   const register = () => {
-    axios({
-      method: "POST",
-      data: {
-        name: registerName,
-        username: registerUsername,
-        password: registerPassword,
-      },
+    API.createUser({
+      name: registerName,
+      username: registerUsername,
+      password: registerPassword,
       withCredentials: true,
-      url: "http://localhost:3000/register",
     })
       .then((res) => console.log(res));
   };
