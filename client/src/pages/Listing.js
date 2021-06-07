@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../utils/API";
 
-
-export function Listing() {
+function Listing() {
   // Setting our component's initial state
   const [listing, setListing] = useState({});
-  const [users, setUsers] = useState([]);
   let { id } = useParams();
-  // const [formObject, setFormObject] = useState({});
-
+  let myListing = listing.user || {};
   // Load all books and store them with setBooks
   useEffect(() => {
-    console.log("this id is " + id);
+    loadListing();
+  }, {});
+
+  // Loads all books and sets them to books
+  function loadListing() {
     API.getListing(id)
-      .then((res) => setListing(res.data))
+      .then((res) => {
+        console.log(res.data);
+        setListing(res.data);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }
 
   return (
     <div className="card my-3 mx-auto" id="listing-div">
@@ -32,10 +36,11 @@ export function Listing() {
           <div className="card-body">
             <h2 className="card-title">{listing.title}</h2>
             <p className="card-text">{listing.description}</p>
-            {/* <p className="card-text"><small className="text-muted">Created by: {{user.name}} on
-            {{format_date
-            date_created}}</small>
-        </p> */}
+            <p className="card-text">
+              <small className="text-muted">
+                Created by: {myListing.name} on {listing.date_created}
+              </small>
+            </p>
             <p>Category: {listing.category}</p>
             <p>Status: {listing.status}</p>
           </div>
