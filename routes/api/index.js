@@ -3,7 +3,8 @@ const userRoutes = require("./users");
 const uploadRoutes = require("./upload");
 const listingRoutes = require("./listings");
 const profileRoutes = require("./profile");
-// routes
+
+// User routes
 router.use("/users", userRoutes);
 router.use("/upload", uploadRoutes);
 router.use("/listings", listingRoutes);
