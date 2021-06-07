@@ -16,16 +16,20 @@ const PORT = process.env.PORT || 3001;
 // Define middleware here
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}))
-app.use(session({
-  secret: "secretcode",
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(cookieParser("secretcode"))
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig")(passport);
@@ -44,18 +48,18 @@ app.post("/login", (req, res, next) => {
     if (err) throw err;
     if (!user) res.send("No user exists");
     else {
-      req.logIn(user, err => {
+      req.logIn(user, (err) => {
         if (err) throw err;
         res.send("Successfully authenticated");
         console.log(req.user);
-      })
+      });
     }
   })(req, res, next);
 });
 app.post("/api/users", (req, res) => {
-  console.log("first place")
+  console.log("first place");
   User.findOne({ username: req.body.username }, async (err, doc) => {
-    console.log("Second place")
+    console.log("Second place");
     if (err) throw err;
     if (doc) res.send("User already exists");
     if (!doc) {
@@ -66,9 +70,9 @@ app.post("/api/users", (req, res) => {
         username: req.body.username,
         password: hashedPassword,
       });
-      console.log("Third place")
+      console.log("Third place");
       await newUser.save();
-      res.send("User created")
+      res.send("User created");
     }
   });
 });
@@ -77,15 +81,17 @@ app.post("/user", (req, res) => {
 });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Haggle", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-},
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/Haggle",
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  },
   () => {
     console.log("Mongoose is connected!");
-  },
+  }
 );
 
 // Start the API server
