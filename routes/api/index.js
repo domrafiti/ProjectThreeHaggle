@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const userRoutes = require("./users");
+const uploadRoutes = require("./upload");
 const listingRoutes = require("./listings");
 const profileRoutes = require("./profile");
 
 // User routes
 router.use("/users", userRoutes);
+router.use("/upload", uploadRoutes);
 router.use("/listings", listingRoutes);
 router.use("/profile", profileRoutes);
 
