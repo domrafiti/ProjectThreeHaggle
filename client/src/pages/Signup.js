@@ -46,7 +46,6 @@ export function Signup() {
             <h2>Sign-up</h2>
             {/* <form className="form signup-form" id="upload-profile-photos" action="/api/users" method="post"
           encType="multipart/form-data"> */}
-
             <label htmlFor="name-signup">name:</label>
             <input
               className="form-input"
@@ -54,7 +53,6 @@ export function Signup() {
               id="name-signup"
               onChange={(e) => setRegisterName(e.target.value)}
             />
-
             <label htmlFor="email-signup">email:</label>
             <input
               className="form-input"
@@ -62,7 +60,6 @@ export function Signup() {
               id="email-signup"
               onChange={(e) => setRegisterUsername(e.target.value)}
             />
-
             <label htmlFor="password-signup">password:</label>
             <input
               className="form-input"
@@ -70,7 +67,6 @@ export function Signup() {
               id="password-signup"
               onChange={(e) => setRegisterPassword(e.target.value)}
             />
-
             <label htmlFor="profile-photos-input">
               Browse htmlFor an image to upload
             </label>
@@ -95,7 +91,6 @@ export function Signup() {
                 <button className="btn btn-primary">Login</button>
               </Link>
             </div>
-
             <div>
               <p>Get User</p>
               <button onClick={getUser}>Submit</button>
@@ -106,5 +101,4 @@ export function Signup() {
     </>
   );
 }
-
 export default Signup;
