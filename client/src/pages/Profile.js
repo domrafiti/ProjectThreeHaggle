@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
+import BioImg from "../components/BioImg"
+import UserListings from "../components/UserListings"
+import FavoriteList from "../components/FavoriteList"
+
 
 export function Profile() {
   // const [listings, setListings] = useState([]);
@@ -22,6 +26,9 @@ export function Profile() {
       .catch((err) => console.log(err));
   }
 
+
+
+
   // function loadListings() {
   //   API.getListings()
   //     .then((res) => setListings(res.data))
@@ -29,52 +36,34 @@ export function Profile() {
   // }
 
   return (
-    <div>
-      <p className="ml-3" style={{ color: "white" }}>
-        Hello and Hi {users._id}
-        <br />
-        {users.email}
-        <br />
-        <br />
-        {}
-        <img src={users.picture_path} style={{ width: "250px" }} />
-      </p>
-      {myListings.map((listing) => (
-        <div
-          className="card my-3 mx-auto"
-          style={{ maxWidth: "540px" }}
-          key={listing._id}
-        >
-          <div className="row g-0">
-            <div className="col-md-4">
-              <img
-                src={listing.image_path}
-                alt={listing.title}
-                className="my-listing-photo"
-              />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">{listing.title}</h5>
-                <p className="card-text">{listing.description}</p>
+    <div className="container">
+      <div className="row" style={{ float: "left" }}>
 
-                <p className="card-text">
-                  <small className="text-muted">
-                    Created by on {listing.date_created}
-                  </small>
-                </p>
-                <a
-                  className="btn btn-primary"
-                  id="listing-view"
-                  href={`/listings/${listing._id}`}
-                >
-                  View Listing
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="col-md-3">
+
+          <BioImg users={users}
+          />
         </div>
-      ))}
+
+
+        <div className="col-md-7" style={{ margin: "20px", position: "relative", left: "200px" }}>
+          <h2 style={{ color: "#fff" }}>My Favorites</h2>
+          <div> <FavoriteList /> </div>
+        </div>
+
+        <div className="col-md-5" style={{ position: "relative", bottom: "350px" }}>
+          <h2 style={{ color: "#fff" }}>My Listings</h2>
+          {myListings.map((myListings) => (
+
+            <div >
+              <UserListings myListings={myListings} />
+            </div>
+
+          ))}
+        </div>
+      </div>
+
+
     </div>
   );
 }
