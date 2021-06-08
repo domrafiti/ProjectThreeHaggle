@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import UploadMany from "../components/UploadMany"
 
-function CreateNew(){
+function CreateNew() {
 
     return (
         <div class="row mt-4">

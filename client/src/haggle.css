@@ -13,7 +13,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   min-height:100vh;
-  
+  clear: both;
 }
 
 
@@ -43,13 +43,10 @@ body {
 .btn.btn-primary {
   border-color: aliceblue;
   background-color: #708090;
-  font-size: 24px;
+  
 }
 
-#delete-btn {
-  font-size: 24px;
-  margin-top: 5px;
-}
+
 
 /* Profile */
 .welcome,
