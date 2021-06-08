@@ -16,10 +16,14 @@ export function Signup() {
       username: registerUsername,
       password: registerPassword,
       withCredentials: true,
-    }).then((res) => {
-      console.log(res);
-      setRegisteredUser(true);
-    });
+    })
+      .then((res) => {
+        console.log(res);
+        setRegisteredUser(true);
+      })
+      .catch((err) => {
+        setRegisteredUser(false);
+      });
   };
   const getUser = () => {
     axios({

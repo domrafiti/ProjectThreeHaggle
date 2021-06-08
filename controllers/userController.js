@@ -8,7 +8,6 @@ const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-
 // Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
@@ -25,7 +24,7 @@ module.exports = {
   create: function (req, res) {
     db.User.findOne({ username: req.body.username }, async (err, doc) => {
       if (err) throw err;
-      if (doc) res.send("User already exists");
+      if (doc) throw err;
       if (!doc) {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -35,7 +34,7 @@ module.exports = {
           password: hashedPassword,
         });
         await newUser.save();
-        res.send("User created")
+        res.send("User created");
       }
     });
   },
