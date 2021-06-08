@@ -16,6 +16,7 @@ export function Signup() {
       username: registerUsername,
       password: registerPassword,
       withCredentials: true,
+<<<<<<< HEAD
     })
       .then((res) => {
         console.log(res);
@@ -24,17 +25,22 @@ export function Signup() {
       .catch((err) => {
         setRegisteredUser(false);
       });
+=======
+    }).then((res) => {
+      console.log(res);
+      setRegisteredUser(true);
+    });
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
   };
   const getUser = () => {
     axios({
       method: "GET",
       withCredentials: true,
       url: "http://localhost:3000/user",
-    })
-      .then((res) => {
-        setData(res.data);
-        console.log(data);
-      });
+    }).then((res) => {
+      setData(res.data);
+      console.log(data);
+    });
   };
 
   return (
@@ -47,6 +53,10 @@ export function Signup() {
             <h2>Sign-up</h2>
             {/* <form className="form signup-form" id="upload-profile-photos" action="/api/users" method="post"
           encType="multipart/form-data"> */}
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
             <label htmlFor="name-signup">name:</label>
             <input
               className="form-input"
@@ -54,6 +64,10 @@ export function Signup() {
               id="name-signup"
               onChange={(e) => setRegisterName(e.target.value)}
             />
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
             <label htmlFor="email-signup">email:</label>
             <input
               className="form-input"
@@ -61,6 +75,10 @@ export function Signup() {
               id="email-signup"
               onChange={(e) => setRegisterUsername(e.target.value)}
             />
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
             <label htmlFor="password-signup">password:</label>
             <input
               className="form-input"
@@ -68,6 +86,10 @@ export function Signup() {
               id="password-signup"
               onChange={(e) => setRegisterPassword(e.target.value)}
             />
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
             <label htmlFor="profile-photos-input">
               Browse htmlFor an image to upload
             </label>
@@ -92,6 +114,10 @@ export function Signup() {
                 <button className="btn btn-primary">Login</button>
               </Link>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc740d09e6ed666208c45e53774f6c78e6ec3590
             <div>
               <p>Get User</p>
               <button onClick={getUser}>Submit</button>

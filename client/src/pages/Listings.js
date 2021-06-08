@@ -4,27 +4,32 @@ import API from "../utils/API";
 function Listings() {
   // Setting our component's initial state
   const [listings, setListings] = useState([]);
-  const [users, setUsers] = useState([]);
   // const [formObject, setFormObject] = useState({});
 
   // Load all books and store them with setBooks
   useEffect(() => {
     loadListings();
-    loadUsers();
   }, []);
 
   // Loads all books and sets them to books
   function loadListings() {
     API.getListings()
-      .then((res) => setListings(res.data))
+      .then((res) => {
+        console.log(res.data);
+        setListings(res.data);
+      })
       .catch((err) => console.log(err));
   }
 
-  function loadUsers() {
-    API.getListings()
-      .then((res) => setListings(res.data))
-      .catch((err) => console.log(err));
-  }
+  const formatDate = (date) => {
+    const theDate = date.substring(0, 10);
+    const arrDate = theDate.split("-");
+    const year = arrDate[0];
+    const month = arrDate[1];
+    const day = arrDate[2];
+    return `${month}/${day}/${year}`;
+  };
+
   return (
     <main className="container container-fluid my-5 carousel-custom">
       {listings.map((listing) => (
@@ -48,7 +53,8 @@ function Listings() {
 
                 <p className="card-text">
                   <small className="text-muted">
-                    Created by on {listing.date_created}
+                    Created by {listing.user.name} on{" "}
+                    {formatDate(listing.date_created)}
                   </small>
                 </p>
                 <a
