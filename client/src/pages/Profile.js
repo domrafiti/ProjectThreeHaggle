@@ -58,11 +58,11 @@ export function Profile() {
                 <h5 className="card-title">{listing.title}</h5>
                 <p className="card-text">{listing.description}</p>
 
-                <p className="card-text">
+                {/* <p className="card-text">
                   <small className="text-muted">
-                    Created by on {listing.date_created}
+                    Created {listing.user.name} by on {listing.date_created}
                   </small>
-                </p>
+                </p> */}
                 <a
                   className="btn btn-primary"
                   id="listing-view"

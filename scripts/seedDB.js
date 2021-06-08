@@ -19,6 +19,7 @@ const userSeed = [
     total_ratings: ["3", "4", "4"],
     average_rating: 4,
     created_dt: Date.now(),
+    listings: [],
     favorites: [],
   },
   {
@@ -29,6 +30,7 @@ const userSeed = [
     total_ratings: ["4", "4", "5"],
     average_rating: 6,
     created_dt: Date.now(),
+    listings: [],
     favorites: [],
   },
   {
@@ -39,6 +41,7 @@ const userSeed = [
     total_ratings: ["1", "1", "1"],
     average_rating: 1,
     created_dt: Date.now(),
+    listings: [],
     favorites: [],
   },
   {
@@ -49,6 +52,7 @@ const userSeed = [
     total_ratings: ["3", "3", "3"],
     average_rating: 3,
     created_dt: Date.now(),
+    listings: [],
     favorites: [],
   },
 ];
@@ -62,7 +66,7 @@ const listingSeed = [
     image_path:
       "http://localhost:3000/uploads/1f0be074-82a7-4950-82de-5f27ed7089ae-haircut.jpg",
     date_created: Date.now(),
-    user_id: "Dom",
+    user: "",
   },
   {
     title: "Riding Mower",
@@ -72,7 +76,7 @@ const listingSeed = [
     category: "Automobiles",
     image_path: "uploads/0b13f15b-89d5-4a36-9375-d826a1fb7bb5-mower.jpg",
     date_created: Date.now(),
-    user_id: "Dom",
+    user: "",
   },
   {
     title: "Go Kart",
@@ -81,7 +85,7 @@ const listingSeed = [
     category: "Automobile",
     image_path: "uploads/f95be5ef-7d73-4375-9861-65fe172b0a6f-go-cart.jpeg",
     date_created: Date.now(),
-    user_id: "Giovany",
+    user: "",
   },
   {
     title: "Electric Guitar",
@@ -90,7 +94,7 @@ const listingSeed = [
     category: "Instrument",
     image_path: "uploads/pexels-pixabay-164774.jpg",
     date_created: Date.now(),
-    user_id: "Giovany",
+    user: "",
   },
   {
     title: "Jet Ski",
@@ -99,7 +103,7 @@ const listingSeed = [
     category: "Automobile",
     image_path: "uploads/used-jet-ski-buying-guide-2-stroke.jpeg",
     date_created: Date.now(),
-    user_id: "Keith",
+    user: "",
   },
   {
     title: "Babe Ruth Baseball Card",
@@ -109,7 +113,7 @@ const listingSeed = [
     image_path:
       "uploads/https___blogs-images.forbes.com_davidseideman_files_2016_12_Ruth-resized.jpg",
     date_created: Date.now(),
-    user_id: "Keith",
+    user: "",
   },
   {
     title: "Broncos Hat",
@@ -118,7 +122,7 @@ const listingSeed = [
     category: "Clothing",
     image_path: "uploads/59001023-1.jpeg",
     date_created: Date.now(),
-    user_id: "Brice",
+    user: "",
   },
 ];
 

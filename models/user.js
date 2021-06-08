@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
+//const passportLocalMongoose = require("passport-local-mongoose");
 const Schema = mongoose.Schema;
-const uuid = require("uuid").v4;
 
 const userSchema = new Schema({
   name: { type: String, required: true },
@@ -14,6 +14,7 @@ const userSchema = new Schema({
   favorites: [],
 });
 
+//userSchema.plugin(passportLocalMongoose);
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
