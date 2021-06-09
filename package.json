@@ -40,7 +40,9 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
     "path": "^0.12.7",
-    "react-bootstrap": "^1.6.0"
+    "react-bootstrap": "^1.6.0",
+    "react-icons": "^4.2.0",
+    "react-star-ratings": "^2.3.0"
   },
   "repository": {
     "type": "git",
