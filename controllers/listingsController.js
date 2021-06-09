@@ -4,11 +4,13 @@ const db = require("../models");
 module.exports = {
   findAll: function (req, res) {
     db.Listings.find(req.query)
+      .populate("user", { name: 1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
     db.Listings.findById(req.params.id)
+      .populate("user", { name: 1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
