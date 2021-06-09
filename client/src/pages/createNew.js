@@ -96,10 +96,8 @@ function CreateNew() {
             // if file not selected throw error
             ocShowAlert('Please upload file', 'red');
         }
-    };
-
-
-
+ 
+function CreateNew() {
 
     return (
         <div className="row mt-4">
