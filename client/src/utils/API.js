@@ -24,4 +24,11 @@ export default {
   getUser: function (id) {
     return axios.get("/api/users/" + id);
   },
+  createUser: function (data) {
+    return axios.post("/api/users", data);
+  },
+  verifyUser: function (data) {
+    console.log(data)
+    return axios.post("/api/login", data);
+  },
 };
