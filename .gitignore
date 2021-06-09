@@ -2,4 +2,3 @@ node_modules
 .DS_Store
 .env
 s3_config.json
-.env

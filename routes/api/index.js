@@ -7,6 +7,7 @@ const profileRoutes = require("./profile");
 router.use("/users", userRoutes);
 router.use("/upload", uploadRoutes);
 router.use("/listings", listingRoutes);
+router.use("/listing", listingRoutes)
 router.use("/profile", profileRoutes);
 
 module.exports = router;

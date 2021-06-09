@@ -12,19 +12,13 @@ const router = express.Router();
 */
 
 aws.config.update({
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: 'cje0QNLlZrYZmBfyFN1JGbZ8SeYVKm7nL2/Kqw2u',//process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: 'AKIA43IHXT4I4MQOG2A6',//process.env.AWS_ACCESS_KEY_ID,
+    Bucket: 'haggle-project-three',
     region: 'us-east-2'
 });
 
-const s3 = new aws.S3(
-    // {
-    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    //     Bucket: 'haggle-project-three',
-    //     region: 'us-east-2',
-    // }
-);
+const s3 = new aws.S3();
 
 /**
 * Single Upload
@@ -60,6 +54,7 @@ function checkFileType(file, cb) {
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
     // Check mime
     const mimetype = filetypes.test(file.mimetype); if (mimetype && extname) {
+        console.log('checked files good');
         return cb(null, true);
     } else {
         cb('Error: Images Only!');
@@ -117,7 +112,7 @@ const uploadsBusinessGallery = multer({
             cb(null, path.basename(file.originalname, path.extname(file.originalname)) + '-' + Date.now() + path.extname(file.originalname))
         }
     }),
-    limits: { fileSize: 5000000 }, // In bytes: 2000000 bytes = 2 MB
+    limits: { fileSize: 5000000 }, // In bytes: 5000000 bytes = 5 MB
     fileFilter: function (req, file, cb) {
         checkFileType(file, cb);
     }
@@ -130,8 +125,9 @@ const uploadsBusinessGallery = multer({
 */
 
 router.post('/multiple-file-upload', (req, res) => {
+    console.log('calling post - listing multi');
     uploadsBusinessGallery(req, res, (error) => {
-        console.log('files', req.files);
+        //console.log('files', req.files);
         if (error) {
             console.log('errors', error);
             res.json({ error: error });
@@ -146,7 +142,7 @@ router.post('/multiple-file-upload', (req, res) => {
                     fileLocation; const galleryImgLocationArray = [];
                 for (let i = 0; i < fileArray.length; i++) {
                     fileLocation = fileArray[i].location;
-                    console.log('filenm', fileLocation);
+                    //console.log('filenm', fileLocation);
                     galleryImgLocationArray.push(fileLocation)
                 }
                 // Save the file name into database
