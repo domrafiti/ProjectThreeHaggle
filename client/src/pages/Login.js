@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import API from "../utils/API";
 // import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./haggle.css";
@@ -11,17 +12,15 @@ export function Login() {
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
   const login = () => {
-    axios({
-      method: "POST",
-      data: {
-        username: loginUsername,
-        password: loginPassword,
-      },
+    console.log("The beginning")
+    API.verifyUser({
+      username: loginUsername,
+      password: loginPassword,
       withCredentials: true,
-      url: "http://localhost:3000/login",
     })
       .then((res) => console.log(res));
   };
+
   const getUser = () => {
     axios({
       method: "GET",
