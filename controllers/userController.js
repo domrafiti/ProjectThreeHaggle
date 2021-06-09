@@ -26,12 +26,12 @@ module.exports = {
       if (err) throw err;
       if (doc) throw err;
       if (!doc) {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        //const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
         const newUser = new User({
           name: req.body.name,
           username: req.body.username,
-          password: hashedPassword,
+          password: req.body.password,
         });
         await newUser.save();
         res.send("User created");

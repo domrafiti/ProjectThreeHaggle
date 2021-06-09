@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import Welcome from "../components/Welcome"
-import Carousel from "../components/Carousel"
-
+import Welcome from "../components/Welcome";
+import Carousel from "../components/Carousel";
 
 function Home() {
   // Setting our component's initial state
@@ -25,8 +24,7 @@ function Home() {
     <div className="container carousel-container">
       <div className="row">
         <Welcome />
-        < Carousel listings={listings}/>
-      
+        <Carousel listings={listings} />
       </div>
     </div>
   );
