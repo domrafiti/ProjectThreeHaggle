@@ -13,6 +13,11 @@ export default {
   deleteListing: function (id) {
     return axios.delete("/api/listings/" + id);
   },
+  //Saves a book to the database
+  saveListing: function (listingData) {
+    console.log("111-listingData", listingData);
+    return axios.post("/api/listing", listingData);
+  },
   getUsers: function () {
     return axios.get("/api/users");
   },
