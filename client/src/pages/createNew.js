@@ -79,11 +79,11 @@ function CreateNew() {
                         API.saveListing({
                             title: formObject.listing_name,
                             description: formObject.listing_desc,
-                            status: "Active",
-                            category: formObject.listing_category,
-                            image_path: fileName,
                             date_created: Date.now(),
-                            user_id: "George"
+                            category: formObject.listing_category,
+                            status: "Active",
+                            user_id: "George",
+                            image_path: fileName
                         })
                     }
                 }

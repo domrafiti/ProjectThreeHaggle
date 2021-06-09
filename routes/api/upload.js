@@ -6,14 +6,15 @@ const path = require('path');
 const url = require('url');
 const express = require('express');
 const router = express.Router();
+const dotenv = require('dotenv').config({ path: '../.env' })
 
 /**
 * PROFILE IMAGE STORING STARTS
 */
 
 aws.config.update({
-    secretAccessKey: 'cje0QNLlZrYZmBfyFN1JGbZ8SeYVKm7nL2/Kqw2u',//process.env.AWS_SECRET_ACCESS_KEY,
-    accessKeyId: 'AKIA43IHXT4I4MQOG2A6',//process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: '',//process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: '',//process.env.AWS_ACCESS_KEY_ID,
     Bucket: 'haggle-project-three',
     region: 'us-east-2'
 });
