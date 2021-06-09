@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import Listing from "./components/Listing";
+import Listing from "./pages/Listing";
 import Listings from "./pages/Listings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";

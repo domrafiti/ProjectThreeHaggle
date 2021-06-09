@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DeleteBtn = (props) => {
+const DeleteBtn = ({deleteListing, id}) => {
 // add delete function here
 
 
@@ -10,7 +10,7 @@ const DeleteBtn = (props) => {
             <button
                 className="btn btn-danger"
                 id="delete-btn"
-                {...props}
+            onClick = {()=>deleteListing(id)}
             >
                 DELETE
                 

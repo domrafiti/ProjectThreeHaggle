@@ -4,18 +4,20 @@ import API from "../utils/API";
 import BioImg from "../components/BioImg"
 import UserListings from "../components/UserListings"
 import FavoriteList from "../components/FavoriteList"
+import DeleteBtn from "../components/DeleteBtn"
 
 
 export function Profile() {
-  // const [listings, setListings] = useState([]);
+  const [update, setUpdate] = useState()
   const [users, setUsers] = useState([]);
   let { id } = useParams();
   let myListings = users.listings || [];
+  console.log(myListings);
 
   useEffect(() => {
-    // loadListings();
+
     loadUsers();
-  }, []);
+  }, [update]);
 
   function loadUsers() {
     API.getUser(id)
@@ -26,45 +28,43 @@ export function Profile() {
       .catch((err) => console.log(err));
   }
 
-
-
-
-  // function loadListings() {
-  //   API.getListings()
-  //     .then((res) => setListings(res.data))
-  //     .catch((err) => console.log(err));
-  // }
-
   return (
     <div className="container">
-      <div className="row" style={{ float: "left" }}>
+      <div className="row" >
 
-        <div className="col-md-3">
+        <div className="col-md-4" >
 
           <BioImg users={users}
           />
+
+<div className="col-md-12" >
+            <h2 style={{ color: "#fff" }}>My Listings</h2>
+            {myListings.map((myListings) => (
+
+              <div >
+                <UserListings key={myListings._id} myListings={myListings} users={users} setUpdate={setUpdate} />
+
+              </div>
+
+            ))}
+          </div>
+
         </div>
 
 
-        <div className="col-md-7" style={{ margin: "20px", position: "relative", left: "200px" }}>
+
+
+        <div className="col-md-6">
           <h2 style={{ color: "#fff" }}>My Favorites</h2>
           <div> <FavoriteList /> </div>
+
+
+
+
         </div>
 
-        <div className="col-md-5" style={{ position: "relative", bottom: "350px" }}>
-          <h2 style={{ color: "#fff" }}>My Listings</h2>
-          {myListings.map((myListings) => (
-
-            <div >
-              <UserListings myListings={myListings} />
-            </div>
-
-          ))}
-        </div>
       </div>
-
-
-    </div>
+      </div>
   );
 }
 
