@@ -9,6 +9,7 @@ const loginRoutes = require("./login");
 router.use("/users", userRoutes);
 router.use("/upload", uploadRoutes);
 router.use("/listings", listingRoutes);
+router.use("/listing", listingRoutes)
 router.use("/profile", profileRoutes);
 router.use("/login", loginRoutes);
 
