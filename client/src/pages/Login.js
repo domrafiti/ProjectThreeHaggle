@@ -25,6 +25,7 @@ export function Login() {
           localStorage.setItem("userId", res.data.userInfo.$__._id);
           localStorage.setItem("expiresAt", res.data.expiresAt);
           setLoggedIn(true);
+          window.location.replace("/profile");
         }
         console.log(res);
       })
@@ -45,60 +46,50 @@ export function Login() {
   };
 
   return (
-    <>
-      {loggedIn ? (
-        <Redirect to="/profile" loggedIn={loggedIn} />
-      ) : (
-        <div className="container container-fluid ">
-          <div className="row">
-            <div className="col-md-6">
-              <h2>Login</h2>
+    <div className="container container-fluid ">
+      <div className="row">
+        <div className="col-md-6">
+          <h2>Login</h2>
 
-              {/* <form className="form login-form"> */}
-              <div className="form-group">
-                <label htmlFor="email-login">email:</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  id="email-login"
-                  onChange={(e) => setLoginUsername(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password-login">password:</label>
-                <input
-                  className="form-input"
-                  type="password"
-                  id="password-login"
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-              </div>
-              <div className="form-group">
-                <button
-                  className="btn btn-primary"
-                  type="submit"
-                  onClick={login}
-                >
-                  Login
-                </button>
-              </div>
-              {/* </form> */}
-              <div>
-                <p>Don't have an account?</p>
-                <Link to="/signup">
-                  <button className="btn btn-primary">Sign-up</button>
-                </Link>
-              </div>
+          {/* <form className="form login-form"> */}
+          <div className="form-group">
+            <label htmlFor="email-login">email:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="email-login"
+              onChange={(e) => setLoginUsername(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password-login">password:</label>
+            <input
+              className="form-input"
+              type="password"
+              id="password-login"
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <button className="btn btn-primary" type="submit" onClick={login}>
+              Login
+            </button>
+          </div>
+          {/* </form> */}
+          <div>
+            <p>Don't have an account?</p>
+            <Link to="/signup">
+              <button className="btn btn-primary">Sign-up</button>
+            </Link>
+          </div>
 
-              <div>
-                <p>Get User</p>
-                <button onClick={getUser}>Submit</button>
-              </div>
-            </div>
+          <div>
+            <p>Get User</p>
+            <button onClick={getUser}>Submit</button>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 }
 
