@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: { type: String, required: true },
-  // username: { type: String, required: true },
-  // password: { type: String, required: true }, // hashing???
+  username: { type: String, required: true },
+  password: { type: String, required: true },
   picture_path: { type: String },
   total_ratings: [],
   average_rating: { type: String },
