@@ -16,13 +16,13 @@ const FiveStar = () => {
                         type="radio"
                         name="rating"
                         value={ratingValue}
-                        onClick={() => setRating(ratingValue)} 
-                        />
-                    <FaStar 
-                    className="star" 
-                    color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"} 
-                    onMouseEnter={() => setHover (ratingValue)}
-                    onMouseLeave={() => setHover (null)}/>
+                        onClick={() => setRating(ratingValue)}
+                    />
+                    <FaStar
+                        className="star"
+                        color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
+                        onMouseEnter={() => setHover(ratingValue)}
+                        onMouseLeave={() => setHover(null)} />
 
                 </label>
             })}
@@ -31,5 +31,5 @@ const FiveStar = () => {
     )
 }
 
-export default FiveStar
+export default FiveStar;
 
