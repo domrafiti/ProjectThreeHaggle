@@ -9,11 +9,11 @@ function Listing() {
   let myListing = listing.user || {};
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadListing();
+    loadListing(id);
   }, {});
 
   // Loads all books and sets them to books
-  function loadListing() {
+  function loadListing(id) {
     API.getListing(id)
       .then((res) => {
         console.log(res.data);
@@ -21,6 +21,16 @@ function Listing() {
       })
       .catch((err) => console.log(err));
   }
+
+  function makeFavorite() {
+    console.log('favorite', id);
+    //need to get session user ID and add to 
+    API.updateUser({
+      id: "",
+      favorite: ""
+    }).then((res) => console.log(res))
+      .catch((err) => console.log(err))
+  };
 
   return (
     <div className="card my-3 mx-auto" id="listing-div">
@@ -43,6 +53,11 @@ function Listing() {
             </p>
             <p>Category: {listing.category}</p>
             <p>Status: {listing.status}</p>
+            <div>
+              <button className="btn btn-info mt-4 mb-4" onClick={makeFavorite} >
+                Mark Favorite
+              </button>
+            </div>
           </div>
         </div>
       </div>

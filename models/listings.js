@@ -24,7 +24,7 @@ const listingSchema = new Schema({
   status: {
     type: String,
   },
-  user_id: {
+  user: {
     //updated to string for testing purposes - will need to figure out how to get userID value from session/users model.
     type: String, //Schema.Types.ObjectId
 

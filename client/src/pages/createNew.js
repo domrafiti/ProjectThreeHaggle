@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, Component } from "react";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
@@ -82,7 +81,7 @@ function CreateNew() {
                             date_created: Date.now(),
                             category: formObject.listing_category,
                             status: "Active",
-                            user_id: "George",
+                            user: "George", //need to update from George to session based user ID
                             image_path: fileName
                         })
                     }
@@ -95,9 +94,9 @@ function CreateNew() {
         } else {
             // if file not selected throw error
             ocShowAlert('Please upload file', 'red');
-        }
- 
-function CreateNew() {
+        };
+    }
+
 
     return (
         <div className="row mt-4">
@@ -105,13 +104,7 @@ function CreateNew() {
                 <h2>
                     Create a New Listing:
                     </h2>
-                <form
-                    className="form new-project-form"
-                // id="upload-photos"
-                // action="/api/upload/multiple-file-upload"
-                // method="post"
-                // enctype="multipart/form-data"
-                >
+                <form className="form new-project-form">
                     <label htmlFor="listing-name">
                         Listing Name:
                         </label>
@@ -142,6 +135,7 @@ function CreateNew() {
                         type="text"
                         id="listing-category"
                         name="listing_category"
+                        value="1"
                     >
                         <option value="1">
                             Automobiles
@@ -183,15 +177,13 @@ function CreateNew() {
                                 <div className="card-body">
                                     <p className="card-text">Please upload the Gallery Images for your gallery</p>
                                     <input type="file" multiple onChange={handleInputChange} />
-                                    <div className="mt-5">
-                                        <button className="btn btn-info" onClick={multipleFileUploadHandler}>I'm done uploading!</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div >
                     <br />
-                    <button className="btn btn-info" onClick={multipleFileUploadHandler}>Create Listing</button>
+                    <button id="listing-create" type="submit" className="btn btn-info mt-4 mb-4" onClick={multipleFileUploadHandler}>Create Listing</button>
                     {/* <button id="listing-create" type="submit" className="btn btn-primary">
                             Create
                         </button> */}
