@@ -8,63 +8,64 @@ import DeleteBtn from "../components/DeleteBtn"
 
 
 export function Profile() {
-  const [update, setUpdate] = useState()
-  const [users, setUsers] = useState([]);
+  const [update, setUpdate] = useState();
+  const [users, setUsers] = useState("");
+
+  //const users = {};
+
+  const [testing, setTesting] = useState({});
   let { id } = useParams();
-  let myListings = users.listings || [];
-  console.log(myListings);
+  //let myListings = users.listings || []; //currently defaulting to OR NULL
+  //console.log(myListings);
 
   useEffect(() => {
+    loadUsers(id);
+  }, [id]);
 
-    loadUsers();
-  }, [update]);
-
-  function loadUsers() {
+  function loadUsers(id) {
     API.getUser(id)
       .then((res) => {
+        //not getting setUser to actual set the user when called.
+        let userData = res.data;
         console.log(res.data);
-        setUsers(res.data);
+        let ratings = res.data.total_ratings;
+        let total = 0;
+        for (let i = 0; i < ratings.length; i++) {
+          total = ratings[i] + total;
+          console.log(total);
+        }
+        total = { "averageRating": total / ratings.length };
+        console.log(total);
+        //setUsers(res.data, total)
+        setUsers(userData);
+        console.log(users);
+
       })
       .catch((err) => console.log(err));
   }
 
+
   return (
     <div className="container">
       <div className="row" >
-
         <div className="col-md-4" >
-
-          <BioImg users={users}
-          />
-
-<div className="col-md-12" >
+          <BioImg users={id} />
+          <div className="col-md-12" >
             <h2 style={{ color: "#fff" }}>My Listings</h2>
-            {myListings.map((myListings) => (
-
+            {/* {myListings.map((myListings) => (
               <div >
                 <UserListings key={myListings._id} myListings={myListings} users={users} setUpdate={setUpdate} />
-
               </div>
-
-            ))}
+            ))} */}
           </div>
-
         </div>
-
-
-
 
         <div className="col-md-6">
           <h2 style={{ color: "#fff" }}>My Favorites</h2>
-          <div> <FavoriteList /> </div>
-
-
-
-
+          {/* <div> <FavoriteList /> </div> */}
         </div>
-
       </div>
-      </div>
+    </div>
   );
 }
 
