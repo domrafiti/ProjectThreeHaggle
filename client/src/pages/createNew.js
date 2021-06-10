@@ -78,11 +78,11 @@ function CreateNew() {
               API.saveListing({
                 title: formObject.listing_name,
                 description: formObject.listing_desc,
-                status: "Active",
-                category: formObject.listing_category,
-                image_path: fileName,
                 date_created: Date.now(),
-                user: localStorage.getItem("userId"),
+                category: formObject.listing_category,
+                status: "Active",
+                user: "George", //need to update from George to session based user ID
+                image_path: fileName,
               });
             }
           }
@@ -97,17 +97,12 @@ function CreateNew() {
       ocShowAlert("Please upload file", "red");
     }
   }
+
   return (
     <div className="row mt-4">
       <div className="col-md-6">
         <h2>Create a New Listing:</h2>
-        <form
-          className="form new-project-form"
-          // id="upload-photos"
-          // action="/api/upload/multiple-file-upload"
-          // method="post"
-          // enctype="multipart/form-data"
-        >
+        <form className="form new-project-form">
           <label htmlFor="listing-name">Listing Name:</label>
           <input
             onChange={handleInputChange}
@@ -132,6 +127,7 @@ function CreateNew() {
             type="text"
             id="listing-category"
             name="listing_category"
+            value="1"
           >
             <option value="1">Automobiles</option>
             <option value="2">Clothing</option>
@@ -169,20 +165,17 @@ function CreateNew() {
                     Please upload the Gallery Images for your gallery
                   </p>
                   <input type="file" multiple onChange={handleInputChange} />
-                  <div className="mt-5">
-                    <button
-                      className="btn btn-info"
-                      onClick={multipleFileUploadHandler}
-                    >
-                      I'm done uploading!
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           <br />
-          <button className="btn btn-info" onClick={multipleFileUploadHandler}>
+          <button
+            id="listing-create"
+            type="submit"
+            className="btn btn-info mt-4 mb-4"
+            onClick={multipleFileUploadHandler}
+          >
             Create Listing
           </button>
           {/* <button id="listing-create" type="submit" className="btn btn-primary">

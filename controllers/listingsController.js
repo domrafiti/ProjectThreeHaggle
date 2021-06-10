@@ -2,8 +2,9 @@ const { Listings } = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
+    console.log(req.query);
     Listings.find(req.query)
-      //.populate("user")
+      //.populate("user", { name: 1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -15,10 +16,8 @@ module.exports = {
   },
   create: function (req, res) {
     console.log("create body", req.body);
-    db.Listings.create(req.body)
-      .then((dbModel) => {
-        console.log(dbModel);
-      }) //res.json(dbModel)
+    Listings.create(req.body)
+      .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {

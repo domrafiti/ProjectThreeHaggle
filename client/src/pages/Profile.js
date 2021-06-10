@@ -11,7 +11,7 @@ export function Profile() {
   const [users, setUsers] = useState({});
   let id = localStorage.getItem("userId");
   let myListings = users.listings || [];
-
+  console.log(id);
   useEffect(() => {
     loadUsers();
   }, [id]);
@@ -19,8 +19,20 @@ export function Profile() {
   function loadUsers() {
     API.getUser(id)
       .then((res) => {
+        //not getting setUser to actual set the user when called.
+        let userData = res.data;
         console.log(res.data);
-        setUsers(res.data);
+        let ratings = res.data.total_ratings;
+        let total = 0;
+        for (let i = 0; i < ratings.length; i++) {
+          total = ratings[i] + total;
+          console.log(total);
+        }
+        total = { averageRating: total / ratings.length };
+        console.log(total);
+        //setUsers(res.data, total)
+        setUsers(userData);
+        console.log(users);
       })
       .catch((err) => console.log(err));
   }
