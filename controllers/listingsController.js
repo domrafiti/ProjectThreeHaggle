@@ -3,7 +3,7 @@ const { Listings } = require("../models");
 module.exports = {
   findAll: function (req, res) {
     Listings.find(req.query)
-      //.populate("user", { name: 1 })
+      //.populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -14,8 +14,11 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    Listings.create(req.body)
-      .then((dbModel) => res.json(dbModel))
+    console.log("create body", req.body);
+    db.Listings.create(req.body)
+      .then((dbModel) => {
+        console.log(dbModel);
+      }) //res.json(dbModel)
       .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {

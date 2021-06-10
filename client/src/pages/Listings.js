@@ -49,8 +49,7 @@ function Listings() {
 
                 <p className="card-text">
                   <small className="text-muted">
-                    Created by {listing.user.name} on{" "}
-                    {formatDate(listing.date_created)}
+                    Created on {formatDate(listing.date_created)}
                   </small>
                 </p>
                 <a

@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import FileUpload from "./components/Upload";
 import FileUploadMany from "./components/UploadMany";
+import CreateNew from "./pages/createNew";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./haggle.css";
 
@@ -28,6 +29,9 @@ function App() {
             <FileUpload />
             <FileUploadMany />
           </Route>
+          <Route exact path="/new-listing">
+            <CreateNew />
+          </Route>
           <Route exact path="/listings">
             <Listings />
           </Route>
@@ -35,6 +39,9 @@ function App() {
             <Listing />
           </Route>
           <Route exact path="/profile/:id">
+            <Profile />
+          </Route>
+          <Route exact path="/profile/">
             <Profile />
           </Route>
           <Route exact path="/login">
