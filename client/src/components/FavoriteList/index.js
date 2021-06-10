@@ -24,7 +24,7 @@ const FavoriteList = () => {
           <a
             type="button"
             style={{ color: "#212529" }}
-            href={`"/listings/${listing._id}`}
+            href={`/listings/${listing._id}`}
           >
             <div>
               <h5 className="card-title col-md-12">{listing.title}</h5>

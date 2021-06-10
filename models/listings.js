@@ -28,9 +28,9 @@ const listingSchema = new Schema({
     //updated to string for testing purposes - will need to figure out how to get userID value from session/users model.
     type: Schema.Types.ObjectId,
 
-    ref: "User",
+    //ref: "User",
   },
-  image_path: [],
+  image_path: { type: String },
 });
 
 const Listings = mongoose.model("Listings", listingSchema);
