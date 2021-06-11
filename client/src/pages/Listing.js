@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import API from "../utils/API";
+import FavStar from "../components/FavStar"
 
 function Listing() {
   // Setting our component's initial state
@@ -25,6 +26,7 @@ function Listing() {
   return (
     <div className="card my-3 mx-auto" id="listing-div">
       <div className="row ">
+        <FavStar />
         <div className="col-md-6">
           <img
             src={listing.image_path}
@@ -35,6 +37,7 @@ function Listing() {
         <div className="col-md-6">
           <div className="card-body">
             <h2 className="card-title">{listing.title}</h2>
+            
             <p className="card-text">{listing.description}</p>
             <p className="card-text">
               <small className="text-muted">
