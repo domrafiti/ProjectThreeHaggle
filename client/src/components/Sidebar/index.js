@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "../Footer"
+import "./style.css"
 
 const Sidebar = ({ loggedIn }) => {
   function handleLogout() {
@@ -8,10 +10,10 @@ const Sidebar = ({ loggedIn }) => {
   }
 
   return (
-    <div>
+    <div >
       <button
         className="btn btn-primary"
-        style={{ background: "transparent" }}
+        style={{ background: "transparent", marginBottom: "30px" }}
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasWithBothOptions"
@@ -83,7 +85,9 @@ const Sidebar = ({ loggedIn }) => {
                 </a>
               </>
             )}
+          <Footer />
           </nav>
+          
         </div>
       </div>
     </div>

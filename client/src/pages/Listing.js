@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Redirect } from "react-router-dom";
 import API from "../utils/API";
 import FavStar from "../components/FavStar"
+import axios from "axios";
 
 function Listing() {
   // Setting our component's initial state
   const [listing, setListing] = useState({});
+  const [faved, setFaved] = useState(false);
   let { id } = useParams();
   let myListing = listing.user || {};
+  let loggedUser = localStorage.getItem("userId");
   // Load all books and store them with setBooks
+  console.log(listing.user);
   useEffect(() => {
     loadListing();
   }, [id]);
@@ -25,13 +29,15 @@ function Listing() {
   }
 
   function makeFavorite() {
-    console.log("favorite", id);
-    //need to get session user ID and add to
-    API.updateUser({
-      id: "",
-      favorite: "",
-    })
-      .then((res) => console.log(res))
+    axios
+      .put("/api/users/favorites/" + loggedUser, {
+        $push: {
+          favorites: [listing._id],
+        },
+      })
+      .then((res) => {
+        setFaved(true);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -50,40 +56,51 @@ function Listing() {
   }
 
   return (
-    <div className="card my-3 mx-auto" id="listing-div">
-      <div className="row ">
-        <FavStar />
-        <div className="col-md-6">
-          <img
-            src={listing.image_path}
-            alt={listing.title}
-            className="my-listing-photo"
-          />
-        </div>
-        <div className="col-md-6">
-          <div className="card-body">
-            <h2 className="card-title">{listing.title}</h2>
-            
-            <p className="card-text">{listing.description}</p>
-            <p className="card-text">
-              <small className="text-muted">
-                Created by: {myListing.name} on {listing.date_created}
-              </small>
-            </p>
-            <p>Category: {listing.category}</p>
-            <p>Status: {listing.status}</p>
-            <div>
-              <button className="btn btn-info mt-4 mb-4" onClick={makeFavorite}>
-                Mark Favorite
-              </button>
-              <button className="btn btn-info mt-4 mb-4" onClick={editListing}>
-                Edit
-              </button>
+    <>
+      {faved ? (
+        <Redirect to="/profile" />
+      ) : (
+        <div className="card my-3 mx-auto" id="listing-div">
+          <div className="row ">
+            <div className="col-md-6">
+              <img
+                src={listing.image_path}
+                alt={listing.title}
+                className="my-listing-photo"
+              />
+            </div>
+            <div className="col-md-6">
+              <div className="card-body">
+                <h2 className="card-title">{listing.title}</h2>
+                <p className="card-text">{listing.description}</p>
+                <p className="card-text">
+                  <small className="text-muted">
+                    Created by: {myListing.name} on {listing.date_created}
+                  </small>
+                </p>
+                <p>Category: {listing.category}</p>
+                <p>Status: {listing.status}</p>
+                <div>
+                  <button
+                    className="btn btn-info mt-4 mb-4"
+                    onClick={makeFavorite}
+                  >
+                    Mark Favorite
+                  </button>
+
+                  <button
+                    className="btn btn-info mt-4 mb-4"
+                    onClick={editListing}
+                  >
+                    Edit
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 export default Listing;
