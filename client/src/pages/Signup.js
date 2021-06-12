@@ -162,9 +162,6 @@ function Signup() {
                   <div className="card-body">
                     <p className="card-text">Please upload an image for your profile</p>
                     <input type="file" onChange={(event) => setImagePath(event.target.file)} />
-                    <div className="mt-5">
-                      <button className="btn btn-info" onClick={singleFileUploadHandler}>Upload!</button>
-                    </div>
                   </div>
                 </div>
                 {/* End of File Upload */}
@@ -172,7 +169,7 @@ function Signup() {
                   <button
                     className="btn btn-primary"
                     type="submit"
-                    onClick={register}
+                    onClick={singleFileUploadHandler}
                   >
                     Sign-up
                   </button>
