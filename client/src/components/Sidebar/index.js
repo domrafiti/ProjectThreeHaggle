@@ -88,11 +88,9 @@ const Sidebar = ({ loggedIn }) => {
               </>
             ) : (
               <>
-                <Link to="/login">
-                  <button className="nav-link" role="button">Login</button>
-                </Link>
-                <a className="nav-link" role="button" onClick={onListings}>
-                  Login2
+
+                < a className="nav-link" role="button" href="/login">
+                  Login
                 </a>
 
                 <a className="nav-link" role="button" href="/signup">
@@ -104,8 +102,8 @@ const Sidebar = ({ loggedIn }) => {
           </nav>
 
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
