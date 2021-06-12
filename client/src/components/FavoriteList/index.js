@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import { Link, useParams, Redirect } from "react-router-dom";
 import API from "../../utils/API";
+import axios from "axios";
 
 const FavoriteList = ({ myFavorites }) => {
   console.log(myFavorites);
