@@ -27,7 +27,6 @@ function Signup() {
       })
       .catch((err) => {
         setRegisteredUser(false);
-
       });
   };
 
@@ -43,7 +42,7 @@ function Signup() {
   };
 
   //File Upload Alert
-  ocShowAlert = (message, background = '#3089cf') => {
+  const ocShowAlert = (message, background = '#3089cf') => {
     let alertContainer = document.querySelector('#oc-alert-container'),
       alertEl = document.createElement('div'),
       textNode = document.createTextNode(message);
@@ -57,20 +56,29 @@ function Signup() {
     }, 3000);
   };
 
-  singleFileChangedHandler = (event) => {
-    this.setState({
-      selectedFile: event.target.files[0]
-    });
+  const singleFileChangedHandler = (event) => {
+    const imagePath = event.target.files;
+    console.log(event.target.files);
+    setImagePath({ imagePath });
+    console.log("image path", imagePath);
+    // selectedFile: event.target.files[0]
   };
 
+
   //File Upload Handler
-  singleFileUploadHandler = (event) => {
+  const singleFileUploadHandler = (event) => {
     event.preventDefault();
     const data = new FormData();
-    //let selectedFile = imagePath.imagePath;
+    let selectedFile = imagePath.imagePath;
+    console.log("selected files", selectedFile);
     // If file selected
     if (selectedFile) {
-      data.append('profileImage', selectedFile, selectedFile.name);
+      console.log(selectedFile.length);
+      for (let i = 0; i < selectedFile.length; i++) {
+        data.append("profileImage", selectedFile[i], selectedFile[i].name);
+        console.log("data", data);
+      }
+      // data.append('profileImage', selectedFile, selectedFile.name);
 
       axios.post('/api/upload/single-upload', data, {
         headers: {
@@ -90,10 +98,24 @@ function Signup() {
             }
           } else {
             // Success
-            let fileName = response.data;
+            let fileName = response.data.location;
             console.log('fileName', fileName);
             ocShowAlert('File Uploaded', '#3089cf');
 
+            API.createUser({
+              name: registerName,
+              username: registerUsername,
+              password: registerPassword,
+              picture_path: fileName,
+              withCredentials: true,
+            })
+              .then((res) => {
+                console.log(res);
+                setRegisteredUser(true);
+              })
+              .catch((err) => {
+                setRegisteredUser(false);
+              });
             //Need to include information here about the rest of the user create here
 
           }
@@ -151,7 +173,7 @@ function Signup() {
                 </div>
                 <div className="card-body">
                   <p className="card-text">Please upload an image for your profile</p>
-                  <input type="file" onChange={(event) => setImagePath(event.target.file)} />
+                  <input type="file" onChange={singleFileChangedHandler} />
                   <div className="mt-5">
                     <button className="btn btn-info" onClick={singleFileUploadHandler}>Upload!</button>
                   </div>
@@ -163,7 +185,8 @@ function Signup() {
             <button
               className="btn btn-primary"
               type="submit"
-              onClick={register}
+              onClick={singleFileUploadHandler}
+            // {register}
             >
               Sign-up
             </button>
