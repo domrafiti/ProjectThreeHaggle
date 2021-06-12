@@ -9,7 +9,7 @@ module.exports = {
   },
   findById: function (req, res) {
     Listings.findById(req.params.id)
-      .populate("user", { name: 1 })
+      .populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

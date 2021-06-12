@@ -30,7 +30,7 @@ function Listing() {
   function makeFavorite() {
     axios
       .put("/api/users/favorites/" + loggedUser, {
-        $push: {
+        $addToSet: {
           favorites: [listing._id],
         },
       })
@@ -65,14 +65,22 @@ function Listing() {
                 </p>
                 <p>Category: {listing.category}</p>
                 <p>Status: {listing.status}</p>
-                <div>
-                  <button
-                    className="btn btn-info mt-4 mb-4"
-                    onClick={makeFavorite}
-                  >
-                    Mark Favorite
-                  </button>
-                </div>
+                {loggedUser ? (
+                  <div>
+                    <button
+                      className="btn btn-info mt-4 mb-4"
+                      onClick={makeFavorite}
+                    >
+                      Mark Favorite
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <a className="btn btn-info mt-4 mb-4" href="/login">
+                      Mark Favorite
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
