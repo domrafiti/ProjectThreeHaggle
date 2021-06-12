@@ -13,7 +13,6 @@ import NoMatch from "./pages/NoMatch";
 import FileUpload from "./components/Upload";
 import FileUploadMany from "./components/UploadMany";
 import CreateNew from "./pages/createNew";
-import EditListing from "./pages/EditListing";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./haggle.css";
 
@@ -30,9 +29,6 @@ function App() {
           </Route>
           <Route exact path="/new-listing">
             <CreateNew />
-          </Route>
-          <Route exact path="/edit-listing">
-            <EditListing />
           </Route>
           <Route exact path="/listings">
             <Listings />
