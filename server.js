@@ -41,11 +41,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  res.sendFile(path.join(__dirname, './client/build/index.html'))
-  // app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
 // Add routes, both API and view
 app.use(routes);
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
