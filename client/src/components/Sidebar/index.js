@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Footer from "../Footer"
 import "./style.css"
 
@@ -91,7 +91,7 @@ const Sidebar = ({ loggedIn }) => {
                 <Link to="/login">
                   <button className="nav-link" role="button">Login</button>
                 </Link>
-                <a className="nav-link" role="button" onCLick={onListings}>
+                <a className="nav-link" role="button" onClick={onListings}>
                   Login2
                 </a>
 
