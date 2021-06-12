@@ -29,10 +29,12 @@ module.exports = {
       if (!doc) {
         //const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
+
         const newUser = new User({
           name: req.body.name,
           username: req.body.username,
           password: req.body.password,
+          picture_path: req.body.picture_path
         });
         await newUser.save();
         res.send("User created");
@@ -40,7 +42,8 @@ module.exports = {
     });
   },
   update: function (req, res) {
-    User.findOneAndUpdate({ _id: req.params.id }, req.body)
+    //console.log('uC-42', req);
+    User.findOneAndUpdate({ _id: req.body.user }, { $push: { listings: req.body.listing } })//look at using 'concat'
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

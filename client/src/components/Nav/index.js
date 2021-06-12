@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import { Link, Redirect } from "react-router-dom";
 import "./style.css";
+import { FaUser, FaSignOutAlt } from "react-icons/fa"
 
 function Nav() {
   let loggedUser = localStorage.getItem("userId");
@@ -42,11 +43,11 @@ function Nav() {
           role="button"
           onClick={handleLogout}
         >
-          logout
+          <FaSignOutAlt />
         </button>
       ) : (
         <a className="no-button nav-btn" id="login" role="button" href="/login">
-          login
+          <FaUser />
         </a>
       )}
     </header>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, Redirect } from "react-router-dom";
 import API from "../utils/API";
+import FavStar from "../components/FavStar";
 import axios from "axios";
 
 function Listing() {
@@ -38,6 +39,18 @@ function Listing() {
         setFaved(true);
       })
       .catch((err) => console.log(err));
+  }
+
+  function editListing() {
+    let myListing = listing.user || {};
+
+    API.updateListing({
+      id: "",
+      title: Response.title,
+      description: Response.description,
+      category: Response.category,
+      status: Response.status,
+    });
   }
 
   return (
@@ -81,6 +94,14 @@ function Listing() {
                     </a>
                   </div>
                 )}
+                <div>
+                  <button
+                    className="btn btn-info mt-4 mb-4"
+                    onClick={editListing}
+                  >
+                    Edit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
