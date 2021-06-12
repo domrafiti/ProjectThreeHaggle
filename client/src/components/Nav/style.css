@@ -1,7 +1,7 @@
 .nav-div {
     color: black;
     font-size: 2rem !important;
-    
+
 }
 
 .nav-btn {
@@ -11,14 +11,14 @@
 
 /* HEADER */
 header {
-    background:transparent;
+    background: transparent;
     padding: 100px !important;
     margin-bottom: 20px;
 }
 
-#haggle{
- font-weight: 900;
- font-size: 65px !important;
+#haggle {
+    font-weight: 900;
+    font-size: 65px !important;
 }
 
 .justify-space-between {
@@ -35,4 +35,9 @@ header {
 
 .p-2 {
     padding: 0.625rem;
+}
+
+
+#login {
+    margin-bottom: 30px;
 }

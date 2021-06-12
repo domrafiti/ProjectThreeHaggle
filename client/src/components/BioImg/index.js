@@ -8,7 +8,7 @@ const BioImg = ({ users }) => {
     <div>
       <div>
         <h2 className="ml-3" style={{ color: "white" }}>
-          Hello and Hi {users.name}{" "}
+          Welcome {users.name}{" "} !
         </h2>
       </div>
 
