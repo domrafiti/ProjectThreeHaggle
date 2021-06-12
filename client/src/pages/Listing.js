@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, Redirect } from "react-router-dom";
 import API from "../utils/API";
+import FavStar from "../components/FavStar";
 import axios from "axios";
 
 function Listing() {
@@ -30,7 +31,7 @@ function Listing() {
   function makeFavorite() {
     axios
       .put("/api/users/favorites/" + loggedUser, {
-        $push: {
+        $addToSet: {
           favorites: [listing._id],
         },
       })
@@ -38,6 +39,18 @@ function Listing() {
         setFaved(true);
       })
       .catch((err) => console.log(err));
+  }
+
+  function editListing() {
+    let myListing = listing.user || {};
+
+    API.updateListing({
+      id: "",
+      title: Response.title,
+      description: Response.description,
+      category: Response.category,
+      status: Response.status,
+    });
   }
 
   return (
@@ -65,12 +78,28 @@ function Listing() {
                 </p>
                 <p>Category: {listing.category}</p>
                 <p>Status: {listing.status}</p>
+                {loggedUser ? (
+                  <div>
+                    <button
+                      className="btn btn-info mt-4 mb-4"
+                      onClick={makeFavorite}
+                    >
+                      Mark Favorite
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <a className="btn btn-info mt-4 mb-4" href="/login">
+                      Mark Favorite
+                    </a>
+                  </div>
+                )}
                 <div>
                   <button
                     className="btn btn-info mt-4 mb-4"
-                    onClick={makeFavorite}
+                    onClick={editListing}
                   >
-                    Mark Favorite
+                    Edit
                   </button>
                 </div>
               </div>
