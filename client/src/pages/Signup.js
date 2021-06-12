@@ -39,9 +39,9 @@ function Signup() {
     alertEl.setAttribute('class', 'oc-alert-pop-up');
     $(alertEl).css('background', background);
     alertEl.appendChild(textNode);
-    alertContainer.appendChild(alertEl);
+    //alertContainer.appendChild(alertEl);
     setTimeout(function () {
-      $(alertEl).fadeOut('slow');
+      //$(alertEl).fadeOut('slow');
       $(alertEl).remove();
     }, 3000);
   };
@@ -161,7 +161,7 @@ function Signup() {
                   </div>
                   <div className="card-body">
                     <p className="card-text">Please upload an image for your profile</p>
-                    <input type="file" onChange={(event) => setImagePath(event.target.file)} />
+                    <input type="file" onChange={singleFileChangedHandler} />
                   </div>
                 </div>
                 {/* End of File Upload */}
