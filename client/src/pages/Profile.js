@@ -45,7 +45,7 @@ export function Profile() {
         <div className="col-md-4">
           <BioImg users={users} />
 
-          <div className="col-md-12">
+          <div className="col-md-12 myListing">
             <h2 style={{ color: "#fff" }}>My Listings</h2>
             {myListings.map((myListings) => (
               <div>
