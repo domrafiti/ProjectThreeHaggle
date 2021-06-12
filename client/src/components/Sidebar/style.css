@@ -1,0 +1,29 @@
+.offcanvas-body {
+    background: linear-gradient(150deg, #7b7a7a -50%, #da8e48 100%);
+
+
+}
+
+.nav-link {
+    color: aliceblue !important;
+    
+}
+
+.offcanvas-header{
+    background: linear-gradient(150deg, #7b7a7a  -50%, #da8e48 100%);
+    color: aliceblue;
+
+}
+
+.haggle {
+    color: aliceblue;
+    margin-left: 10px;
+}
+
+nav a:hover {
+    color: #ffff !important;
+    background: linear-gradient(150deg, #da8e48 0%, #dae8f5 100%);
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+
+}

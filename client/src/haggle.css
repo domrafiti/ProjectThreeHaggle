@@ -1,0 +1,262 @@
+* {
+  /* font-family: "Karantina", cursive; */
+  font-family: 'Merriweather Sans', sans-serif;
+
+}
+
+
+/* Body and background image */
+body { 
+  background:  linear-gradient(100deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./pages/handshake.jpg") no-repeat center center fixed ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height:100vh;
+  clear: both;
+}
+
+
+
+/* Container */
+.container {
+  padding-bottom: 25px;
+}
+
+.car-img {
+  padding: 3px;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+  background: #ffffff;
+  border: 1px solid lightgray;
+  
+
+}
+
+.carousel-container {
+  padding: 20px;
+  background: transparent;
+  
+
+}
+
+
+
+/* Buttons  */
+
+.btn.btn-primary {
+  border-color: aliceblue;
+  background-color: #708090;
+  
+}
+
+
+
+/* Profile */
+.welcome,
+h1 {
+  float: left;
+  right: 30px;
+}
+
+.bio img {
+  border: black solid 1px;
+  width: 250px;
+}
+
+/* Current listing profile button */
+.myListing {
+  margin-top: 20px;
+}
+
+/*  single listing profile button*/
+
+#single-listing {
+  float: left !important;
+  font-size: 24px !important;
+  margin-top: 5px;
+}
+
+/* Carousel main page  */
+
+.carousel-item img{
+  width:100% !important;
+  height: 350px;
+  max-height: 350px !important;
+  
+}
+
+.carousel-inner .d-block{
+  max-height: 650px !important;
+}
+
+.carousel-caption-custom {
+  background: rgba(0, 0, 0, 0.5);
+
+}
+
+/* listing photo */
+
+.my-listing-photo {
+  max-height: 180px;
+  max-width: 180px;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 1em !important;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+#listing-div-edit {
+  display: none;
+}
+
+.show-it {
+  display: block;
+}
+
+.hide-it {
+  display: none;
+}
+
+.btn.btn-danger {
+  background-color: #a52a2a;
+  float: right;
+}
+/* Sign up log in page */
+form {
+  width: 100%;
+}
+
+form .form-group {
+  display: block;
+  width: 100%;
+  margin: 0.625rem 0;
+}
+
+form .form-input,
+form .form-textarea {
+  display: block;
+}
+
+form select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
+}
+
+form label,
+form .form-label {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0.625rem 0 0.25rem 0.3rem;
+}
+
+form .form-input {
+  width: 90%;
+  padding: 0.75rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  margin: auto;
+  font-size: 1.2rem;
+  border: 1px solid #484848;
+  border-radius: 0.3rem;
+}
+
+form .form-input.form-input-squared {
+  border-radius: 0;
+}
+
+
+form [type='checkbox'],
+form [type='radio'] {
+  display: inline-block;
+}
+
+label form [type='checkbox'],
+label form [type='radio'] {
+  display: inline-block;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  #listing-create {
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #listing-create {
+    margin-top: 5px;
+  }
+
+  .bio img {
+    max-width: 250px;
+  }
+
+  #current-listing {
+    font-size: 18px;
+  }
+
+  .list-del {
+    right: 15px;
+    margin-top: 20px;
+  }
+}
+
+
+@media only screen and (max-width: 560px) {
+  .nav-btn {
+    font-size: 38px !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .bio img {
+    position: relative;
+    right: 20px;
+    margin-top: 10px;
+  }
+
+  .nav-btn {
+    font-size: 36px !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .nav-btn {
+    font-size: 28px !important;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .nav-btn {
+    font-size: 24px !important;
+  }
+
+  .bio img {
+    position: relative;
+    right: 20px;
+    margin-top: 10px;
+  }
+}
