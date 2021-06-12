@@ -29,7 +29,7 @@ export default {
   },
   //new update user function to handle favorites and other things
   updateUser: function (data) {
-    return axios.put("/api/users/id");
+    return axios.put("/api/users/id", data);
   },
   verifyUser: function (data) {
     console.log(data)

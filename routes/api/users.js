@@ -13,4 +13,8 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+router
+  .route("/id")
+  .put(userController.update)
+
 module.exports = router;
