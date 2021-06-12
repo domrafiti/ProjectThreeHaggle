@@ -4,11 +4,22 @@ import Footer from "../Footer"
 import "./style.css"
 
 const Sidebar = ({ loggedIn }) => {
+  const [listingsRoute, setListingsRoute] = useState(false);
+
+  function onListings() {
+    setListingsRoute(true);
+  }
+
   function handleLogout() {
     console.log("logout button");
     localStorage.clear();
     window.location.replace("/");
   }
+
+  if (listingsRoute) {
+    return <Redirect to='/listings' />
+  }
+
 
   return (
     <div >
@@ -80,9 +91,9 @@ const Sidebar = ({ loggedIn }) => {
                 <Link to="/login">
                   <button className="nav-link" role="button">Login</button>
                 </Link>
-                {/* <a className="nav-link" role="button" href="/login">
-                  Login
-                </a> */}
+                <a className="nav-link" role="button" onCLick={onListings}>
+                  Login2
+                </a>
 
                 <a className="nav-link" role="button" href="/signup">
                   Signup
