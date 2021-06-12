@@ -12,7 +12,7 @@ const userSchema = new Schema({
   average_rating: { type: String },
   created_dt: { type: Date, default: Date.now() },
   listings: [{ type: Schema.Types.ObjectId, ref: "Listings" }], //Schema.Types.ObjectId
-  favorites: [],
+  favorites: [{ type: Schema.Types.ObjectId, ref: "Listings" }],
 });
 
 userSchema.pre("save", async function (next) {

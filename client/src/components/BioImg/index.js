@@ -3,12 +3,17 @@ import FiveStar from '../FiveStar'
 import Placeholder from './Placeholder.png';
 import API from "../../utils/API";
 
-const BioImg = (id) => {
-    const [users, setUsers] = useState({});
-    let idOne = id.users;
-    useEffect(() => {
-        loadUsers(idOne);
-    }, [id]);
+
+const BioImg = ({ users }) => {
+  // Function to set a rating, leave a review, average stars, Stars = ACE
+  return (
+    <div>
+      <div>
+        <h2 className="ml-3" style={{ color: "white" }}>
+          Welcome {users.name}{" "} !
+        </h2>
+      </div>
+
 
     console.log(id);
 
