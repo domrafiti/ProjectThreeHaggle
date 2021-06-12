@@ -1,6 +1,6 @@
 import React from "react";
 import FiveStar from "../FiveStar";
-import Placeholder from "./Placeholder.png";
+// import Placeholder from "./Placeholder.png";
 
 const BioImg = ({ users }) => {
   // Function to set a rating, leave a review, average stars, Stars = ACE
@@ -8,7 +8,7 @@ const BioImg = ({ users }) => {
     <div>
       <div>
         <h2 className="ml-3" style={{ color: "white" }}>
-          Welcome {users.name}{" "} !
+          Welcome {users.name} !
         </h2>
       </div>
 
