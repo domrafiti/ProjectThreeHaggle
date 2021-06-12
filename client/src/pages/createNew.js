@@ -99,52 +99,57 @@ function CreateNew() {
   }
 
   return (
-    <div className="row mt-4">
-      <div className="col-md-6">
-        <h2>Create a New Listing:</h2>
-        <form className="form new-project-form">
-          <label htmlFor="listing-name">Listing Name:</label>
-          <input
-            onChange={handleInputChange}
-            className="form-input"
-            type="text"
-            id="listing-name"
-            name="listing_name"
-          />
-          <label htmlFor="listing-desc">Listing Description:</label>
-          <textarea
-            onChange={handleInputChange}
-            className="form-input"
-            type="text"
-            id="listing-desc"
-            name="listing_desc"
-          ></textarea>
-          <br />
-          <label htmlFor="listing-category">Categories:</label>
-          <select
-            onChange={handleInputChange}
-            className="form-control"
-            type="text"
-            id="listing-category"
-            name="listing_category"
-            value="1"
-          >
-            <option value="1">Automobiles</option>
-            <option value="2">Clothing</option>
-            <option value="3">Farm Equipment</option>
-            <option value="4">Furniture</option>
-            <option value="5">Miscellaneous</option>
-            <option value="6">Skilled Labor</option>
-            <option value="7">Unskilled Labor</option>
-          </select>
-          <input
-            type="hidden"
-            id="listing-status"
-            name="listing_status"
-            value="1"
-          />
-          <div>
-            <div className="container">
+    <div className="container">
+      <div className="row mt-4">
+        <div className="col-md-6">
+          <h2>Create a New Listing:</h2>
+          <form className="form new-project-form">
+            <div className="form-group">
+              <label htmlFor="listing-name">Listing Name:</label>
+              <input
+                onChange={handleInputChange}
+                className="form-input"
+                type="text"
+                id="listing-name"
+                name="listing_name"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="listing-desc">Listing Description:</label>
+              <textarea
+                onChange={handleInputChange}
+                className="form-input"
+                type="text"
+                id="listing-desc"
+                name="listing_desc"
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="listing-category">Categories:</label>
+              <select
+                onChange={handleInputChange}
+                className="form-control"
+                type="text"
+                id="listing-category"
+                name="listing_category"
+                value="1"
+              >
+                <option value="1">Automobiles</option>
+                <option value="2">Clothing</option>
+                <option value="3">Farm Equipment</option>
+                <option value="4">Furniture</option>
+                <option value="5">Miscellaneous</option>
+                <option value="6">Skilled Labor</option>
+                <option value="7">Unskilled Labor</option>
+              </select>
+              <input
+                type="hidden"
+                id="listing-status"
+                name="listing_status"
+                value="1"
+              />
+            </div>
+            <div className="form-group">
               <div id="oc-alert-container"></div>
               {/* For Alert box*/}
               {/* Multiple File Upload */}
@@ -168,20 +173,21 @@ function CreateNew() {
                 </div>
               </div>
             </div>
-          </div>
-          <br />
-          <button
-            id="listing-create"
-            type="submit"
-            className="btn btn-info mt-4 mb-4"
-            onClick={multipleFileUploadHandler}
-          >
-            Create Listing
-          </button>
-          {/* <button id="listing-create" type="submit" className="btn btn-primary">
+            <div className="form-group">
+              <button
+                id="listing-create"
+                type="submit"
+                className="btn btn-info mt-4 mb-4"
+                onClick={multipleFileUploadHandler}
+              >
+                Create Listing
+              </button>
+            </div>
+            {/* <button id="listing-create" type="submit" className="btn btn-primary">
                             Create
                         </button> */}
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
