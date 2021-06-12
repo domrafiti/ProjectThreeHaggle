@@ -81,14 +81,14 @@ function CreateNew() {
                 date_created: Date.now(),
                 category: formObject.listing_category,
                 status: "Active",
-                //user: "George", //need to update from George to session based user ID
+                user: localStorage.getItem("userId"),
                 image_path: fileName,
               }).then((res) => {
                 API.updateUser({
                   user: localStorage.getItem("userId"),
                   listing: res.data._id
-                }).then(() => {
-
+                }).then((res) => {
+                  window.location.replace('/profile')
                 })
                   .catch((err) => {
                     console.log(err);
@@ -142,15 +142,15 @@ function CreateNew() {
                 type="text"
                 id="listing-category"
                 name="listing_category"
-                value="1"
+                value="Automobiles"
               >
-                <option value="1">Automobiles</option>
-                <option value="2">Clothing</option>
-                <option value="3">Farm Equipment</option>
-                <option value="4">Furniture</option>
-                <option value="5">Miscellaneous</option>
-                <option value="6">Skilled Labor</option>
-                <option value="7">Unskilled Labor</option>
+                <option value="Automobiles">Automobiles</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Farm Equipment">Farm Equipment</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Skilled Labor">Skilled Labor</option>
+                <option value="Unskilled Labor">Unskilled Labor</option>
               </select>
               <input
                 type="hidden"

@@ -3,13 +3,13 @@ const { Listings } = require("../models");
 module.exports = {
   findAll: function (req, res) {
     Listings.find(req.query)
-      .populate("user")
+      //.populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
     Listings.findById(req.params.id)
-      .populate("user", { name: 1 })
+      .populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
