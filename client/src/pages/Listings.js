@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 function Listings() {
   const [listings, setListings] = useState([]);
-  let loggedUser = localStorage.getItem("userId");
+  const loggedUser = localStorage.getItem("userId");
   useEffect(() => {
     loadListings();
   }, []);

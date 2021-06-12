@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import API from "../utils/API";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function Signup() {
   // Setting our component's initial state
@@ -10,10 +12,9 @@ function Signup() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [registeredUser, setRegisteredUser] = useState("");
   const [data, setData] = useState(null);
-
   const [imagePath, setImagePath] = useState({});
-
-  const register = () => {
+  const register = (event) => {
+    event.preventDefault();
     API.createUser({
       name: registerName,
       username: registerUsername,
@@ -30,17 +31,6 @@ function Signup() {
       });
   };
 
-  const getUser = () => {
-    axios({
-      method: "GET",
-      withCredentials: true,
-      url: "http://localhost:3000/user",
-    }).then((res) => {
-      setData(res.data);
-      console.log(data);
-    });
-  };
-
   //File Upload Alert
   const ocShowAlert = (message, background = '#3089cf') => {
     let alertContainer = document.querySelector('#oc-alert-container'),
@@ -55,7 +45,6 @@ function Signup() {
       $(alertEl).remove();
     }, 3000);
   };
-
   const singleFileChangedHandler = (event) => {
     const imagePath = event.target.files;
     console.log(event.target.files);
@@ -63,8 +52,6 @@ function Signup() {
     console.log("image path", imagePath);
     // selectedFile: event.target.files[0]
   };
-
-
   //File Upload Handler
   const singleFileUploadHandler = (event) => {
     event.preventDefault();
@@ -79,7 +66,6 @@ function Signup() {
         console.log("data", data);
       }
       // data.append('profileImage', selectedFile, selectedFile.name);
-
       axios.post('/api/upload/single-upload', data, {
         headers: {
           'accept': 'application/json',
@@ -101,7 +87,6 @@ function Signup() {
             let fileName = response.data.location;
             console.log('fileName', fileName);
             ocShowAlert('File Uploaded', '#3089cf');
-
             API.createUser({
               name: registerName,
               username: registerUsername,
@@ -117,7 +102,6 @@ function Signup() {
                 setRegisteredUser(false);
               });
             //Need to include information here about the rest of the user create here
-
           }
         }
       }).catch((error) => {
@@ -130,76 +114,76 @@ function Signup() {
     }
   };
 
-
   return (
     <div>
       {registeredUser ? (
         <Redirect to="/login" registeredUser={registeredUser} />
       ) : (
-        <div className="row">
-          <div className="col-md-6">
-            <h2>Sign-up</h2>
-            {/* <form className="form signup-form" id="upload-profile-photos" action="/api/users" method="post"
-          encType="multipart/form-data"> */}
-            <label htmlFor="name-signup">name:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="name-signup"
-              onChange={(e) => setRegisterName(e.target.value)}
-            />
-            <label htmlFor="email-signup">email:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="email-signup"
-              onChange={(e) => setRegisterUsername(e.target.value)}
-            />
-            <label htmlFor="password-signup">password:</label>
-            <input
-              className="form-input"
-              type="password"
-              id="password-signup"
-              onChange={(e) => setRegisterPassword(e.target.value)}
-            />
-            {/* Start of Single File Upload for Profile Picture */}
-            <div className="container">
-              {/* For Alert box*/}
-              <div id="oc-alert-container"></div>{/* Single File Upload*/}
-              <div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
-                <div className="card-header">
-                  <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
-                  <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 5MB )</p>
+        <div className="container container-fluid">
+          <div className="row">
+            <div className="col-md-6">
+              <h2>Sign-up</h2>
+              <form className="form new-project-form">
+                <div className="form-group">
+                  <label htmlFor="name-signup">name:</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    id="name-signup"
+                    onChange={(e) => setRegisterName(e.target.value)}
+                  />
                 </div>
-                <div className="card-body">
-                  <p className="card-text">Please upload an image for your profile</p>
-                  <input type="file" onChange={singleFileChangedHandler} />
-                  <div className="mt-5">
-                    <button className="btn btn-info" onClick={singleFileUploadHandler}>Upload!</button>
+                <div className="form-group">
+                  <label htmlFor="email-signup">email:</label>
+                  <input
+                    className="form-input"
+                    type="text"
+                    id="email-signup"
+                    onChange={(e) => setRegisterUsername(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password-signup">password:</label>
+                  <input
+                    className="form-input"
+                    type="password"
+                    id="password-signup"
+                    onChange={(e) => setRegisterPassword(e.target.value)}
+                  />
+                </div>
+                {/* Start of Single File Upload for Profile Picture */}
+                {/* For Alert box*/}
+                <div id="oc-alert-container form-group"></div>{/* Single File Upload*/}
+                <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
+                  <div className="card-header">
+                    <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
+                    <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 5MB )</p>
+                  </div>
+                  <div className="card-body">
+                    <p className="card-text">Please upload an image for your profile</p>
+                    <input type="file" onChange={(event) => setImagePath(event.target.file)} />
+                    <div className="mt-5">
+                      <button className="btn btn-info" onClick={singleFileUploadHandler}>Upload!</button>
+                    </div>
                   </div>
                 </div>
+                {/* End of File Upload */}
+                <div className="form-group">
+                  <button
+                    className="btn btn-primary"
+                    type="submit"
+                    onClick={register}
+                  >
+                    Sign-up
+                  </button>
+                </div>
+              </form>
+              <div>
+                <p>Already have an account?</p>
+                <Link to="/login">
+                  <button className="btn btn-primary">Login</button>
+                </Link>
               </div>
-            </div>
-            {/* End of File Upload */}
-            <br />
-            <button
-              className="btn btn-primary"
-              type="submit"
-              onClick={singleFileUploadHandler}
-            // {register}
-            >
-              Sign-up
-            </button>
-            {/* </form> */}
-            <div>
-              <p>Already have an account?</p>
-              <Link to="/login">
-                <button className="btn btn-primary">Login</button>
-              </Link>
-            </div>
-            <div>
-              <p>Get User</p>
-              <button onClick={getUser}>Submit</button>
             </div>
           </div>
         </div>
