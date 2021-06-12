@@ -26,8 +26,6 @@ function App() {
           {/* Logged in routing here */}
           <Route exact path="/">
             <Home />
-            <FileUpload />
-            <FileUploadMany />
           </Route>
           <Route exact path="/new-listing">
             <CreateNew />
@@ -39,6 +37,9 @@ function App() {
             <Listing />
           </Route>
           <Route exact path="/profile/:id">
+            <Profile />
+          </Route>
+          <Route exact path="/profile/">
             <Profile />
           </Route>
           <Route exact path="/login">

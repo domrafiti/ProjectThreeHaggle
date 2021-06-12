@@ -1,10 +1,9 @@
 const { Listings } = require("../models");
 
-// Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
     Listings.find(req.query)
-      .populate("user", { name: 1 })
+      //.populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -15,7 +14,7 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    console.log('create body', req.body);
+    console.log("create body", req.body);
     Listings.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
