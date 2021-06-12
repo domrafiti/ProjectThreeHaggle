@@ -81,9 +81,19 @@ function CreateNew() {
                 date_created: Date.now(),
                 category: formObject.listing_category,
                 status: "Active",
-                user: "George", //need to update from George to session based user ID
+                //user: "George", //need to update from George to session based user ID
                 image_path: fileName,
-              });
+              }).then((res) => {
+                API.updateUser({
+                  user: localStorage.getItem("userId"),
+                  listing: res.data._id
+                }).then(() => {
+
+                })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              })
             }
           }
         })
