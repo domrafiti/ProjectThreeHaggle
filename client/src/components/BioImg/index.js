@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from "react";
 import FiveStar from '../FiveStar'
-import Placeholder from './Placeholder.png';
+// import Placeholder from './Placeholder.png';
 import API from "../../utils/API";
 
 
 const BioImg = ({ users }) => {
-  // Function to set a rating, leave a review, average stars, Stars = ACE
-  return (
-    <div>
-      <div>
-        <h2 className="ml-3" style={{ color: "white" }}>
-          Welcome {users.name}{" "} !
-        </h2>
-      </div>
+    // Function to set a rating, leave a review, average stars, Stars = ACE
 
 
-    console.log(id);
 
     function loadUsers(id) {
         API.getUser(id)
@@ -35,7 +27,7 @@ const BioImg = ({ users }) => {
                 setUsers(userData);
                 console.log(users);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
     }
 
     // Function to set a rating, leave a review, average stars, Stars = ACE
@@ -43,7 +35,7 @@ const BioImg = ({ users }) => {
         <div>
             <div>
                 <h2 className="ml-3" style={{ color: "white" }}>
-                    Hello and Hi {users.name} </h2>
+                    Welcome {users.name}! </h2>
             </div>
 
             <div className="card" style={{ width: "18rem" }}>
