@@ -7,8 +7,6 @@ import API from "../../utils/API";
 const BioImg = ({ users }) => {
     // Function to set a rating, leave a review, average stars, Stars = ACE
 
-
-
     function loadUsers(id) {
         API.getUser(id)
             .then((res) => {

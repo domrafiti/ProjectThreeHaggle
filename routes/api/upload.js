@@ -13,8 +13,8 @@ const dotenv = require('dotenv').config({ path: '../.env' })
 */
 
 aws.config.update({
-    secretAccessKey: 'gWLkGiHOPSBbjmSwRaiHxtvXFJWp84x0rOXB20CU',//process.env.AWS_SECRET_ACCESS_KEY,
-    accessKeyId: 'AKIA43IHXT4I4ZUB7QPZ',//process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     Bucket: 'haggle-project-three',
     region: 'us-east-2'
 });

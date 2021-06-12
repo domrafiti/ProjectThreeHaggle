@@ -10,9 +10,7 @@ const DeleteBtn = ({ deleteListing, id }) => {
 
 
     return (
-
         <div>
-
             <button
                 className="btn btn-danger"
                 id="delete-btn"
@@ -21,8 +19,7 @@ const DeleteBtn = ({ deleteListing, id }) => {
                 <FaTrash />
 
             </button >
-        </div >
-
+        </div>
     )
 }
 
