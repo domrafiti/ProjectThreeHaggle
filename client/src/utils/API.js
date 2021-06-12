@@ -32,7 +32,7 @@ export default {
   },
   //new update user function to handle favorites and other things
   updateUser: function (data) {
-    return axios.put("/api/users/" + data);
+    return axios.put("/api/users/id", data);
   },
 
   addFavorite: function (data) {
