@@ -19,8 +19,8 @@ import "./haggle.css";
 function App() {
   return (
     <div className="flex-column justify-space-around ">
+      <Nav />
       <Router>
-        <Nav />
 
         <Switch>
           {/* Logged in routing here */}
