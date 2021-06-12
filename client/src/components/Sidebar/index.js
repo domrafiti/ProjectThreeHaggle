@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../Footer"
 import "./style.css"
 
@@ -76,18 +77,21 @@ const Sidebar = ({ loggedIn }) => {
               </>
             ) : (
               <>
-                <a className="nav-link" role="button" href="/login">
+                <Link to="/login">
+                  <button className="nav-link" role="button">Login</button>
+                </Link>
+                {/* <a className="nav-link" role="button" href="/login">
                   Login
-                </a>
+                </a> */}
 
                 <a className="nav-link" role="button" href="/signup">
                   Signup
                 </a>
               </>
             )}
-          <Footer />
+            <Footer />
           </nav>
-          
+
         </div>
       </div>
     </div>
