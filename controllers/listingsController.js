@@ -3,7 +3,7 @@ const { Listings } = require("../models");
 module.exports = {
   findAll: function (req, res) {
     Listings.find(req.query)
-      //.populate("user")
+      .populate("user")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
