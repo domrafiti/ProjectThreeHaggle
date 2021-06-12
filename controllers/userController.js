@@ -1,5 +1,5 @@
 const { User } = require("../models");
-
+const mongoose = require("mongoose");
 const cors = require("cors");
 const passport = require("passport");
 const passportLocal = require("passport-local").Strategy;
@@ -46,6 +46,14 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
+  favorite: function (req, res) {
+    console.log(req.body.favorite);
+    User.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+
   remove: function (req, res) {
     User.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())

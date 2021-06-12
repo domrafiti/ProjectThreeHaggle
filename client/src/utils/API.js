@@ -31,8 +31,14 @@ export default {
   updateUser: function (data) {
     return axios.put("/api/users/id", data);
   },
+
+  addFavorite: function (data) {
+    console.log(data);
+    return axios.put("/api/users/favorites/" + data.id);
+  },
+
   verifyUser: function (data) {
-    console.log(data)
+    console.log(data);
     return axios.post("/api/login", data);
   },
 };

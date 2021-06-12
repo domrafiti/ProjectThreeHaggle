@@ -11,6 +11,8 @@ export function Profile() {
   const [users, setUsers] = useState({});
   let id = localStorage.getItem("userId");
   let myListings = users.listings || [];
+  let myFavorites = users.favorites || [];
+  const [loggedIn, setLoggedIn] = useState(true);
 
   useEffect(() => {
     loadUsers();
@@ -52,6 +54,7 @@ export function Profile() {
                   myListings={myListings}
                   users={users}
                   setUpdate={setUpdate}
+                  loggedIn={loggedIn}
                 />
               </div>
             ))}
@@ -62,7 +65,7 @@ export function Profile() {
           <h2 style={{ color: "#fff" }}>My Favorites</h2>
           <div>
             {" "}
-            <FavoriteList />{" "}
+            <FavoriteList myFavorites={myFavorites} />{" "}
           </div>
         </div>
       </div>
