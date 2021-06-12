@@ -1,0 +1,43 @@
+.nav-div {
+    color: black;
+    font-size: 2rem !important;
+
+}
+
+.nav-btn {
+    color: white !important;
+    font-size: 3rem !important;
+}
+
+/* HEADER */
+header {
+    background: transparent;
+    padding: 100px !important;
+    margin-bottom: 20px;
+}
+
+#haggle {
+    font-weight: 900;
+    font-size: 65px !important;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.display-flex {
+    display: flex !important;
+}
+
+.p-2 {
+    padding: 0.625rem;
+}
+
+
+#login {
+    margin-bottom: 30px;
+}

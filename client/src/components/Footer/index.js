@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css"
 
 function Footer() {
   return (
-    <footer className="row mt-5">
-      <div className="col-sm-12 navbar-dark bg-dark fixed-bottom footer-border">
+    <footer >
+      <div className=" footer navbar-dark footer-border">
         <p id="footer-text" className="text-center mt-2 text-light">
           &copy; Haggle.&nbsp; All Rights Reserved
         </p>

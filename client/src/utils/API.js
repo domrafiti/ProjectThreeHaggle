@@ -1,21 +1,48 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all listings
   getListings: function () {
-    console.log("get listings");
+    return axios.get("/api/listings");
+  },
+  // Gets the listing with the given id
+  getListing: function (id) {
+    return axios.get("/api/listings/" + id);
+  },
+  // Deletes the listing with the given id
+  deleteListing: function (id) {
+    return axios.delete("/api/listings/" + id);
+  },
+  //Saves a book to the database
+  saveListing: function (listingData) {
+    console.log("111-listingData", listingData);
+    return axios.post("/api/listing", listingData);
+  },
+  updateListing: function (id) {
+    return axios.put("/api/listings/edit/" + id)
+  },
+  editListing: function (id) {
+    return axios.get("/api/listings/edit/" + id)
+  },
+  getUsers: function () {
     return axios.get("/api/users");
   },
-  // Gets the book with the given id
-  getListing: function (id) {
-    return axios.get("/api/listing/" + id);
+  getUser: function (id) {
+    return axios.get("/api/users/" + id);
   },
-  // Deletes the book with the given id
-  deleteListing: function (id) {
-    return axios.delete("/api/listing/" + id);
+  createUser: function (data) {
+    return axios.post("/api/users", data);
   },
-  // Saves a book to the database
-  // saveListing: function (bookData) {
-  //   return axios.post("/api/listing", listingData);
-  // },
+  //new update user function to handle favorites and other things
+  updateUser: function (data) {
+    return axios.put("/api/users/id", data);
+  },
+  addFavorite: function (data) {
+    console.log(data);
+    return axios.put("/api/users/favorites/" + data.id);
+  },
+  verifyUser: function (data) {
+    console.log(data);
+    return axios.post("/api/login", data);
+  },
 };

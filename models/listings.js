@@ -24,9 +24,11 @@ const listingSchema = new Schema({
   status: {
     type: String,
   },
-  user_id: {
-    type: String,
-    required: true,
+  user: {
+    //updated to string for testing purposes - will need to figure out how to get userID value from session/users model.
+    type: Schema.Types.ObjectId,
+
+    ref: "User",
   },
   image_path: [],
 });
