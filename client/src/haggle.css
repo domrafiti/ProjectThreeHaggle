@@ -7,7 +7,7 @@
 
 /* Body and background image */
 body { 
-  background:  linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./pages/handshake.jpg") no-repeat center center fixed ; 
+  background:  linear-gradient(100deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./pages/handshake.jpg") no-repeat center center fixed ; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,8 +61,8 @@ h1 {
 }
 
 /* Current listing profile button */
-#current-listing {
-  bottom: 5px;
+.myListing {
+  margin-top: 20px;
 }
 
 /*  single listing profile button*/

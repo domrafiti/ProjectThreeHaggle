@@ -1,4 +1,5 @@
 import React from 'react'
+import {FaTrash} from "react-icons/fa"
 
 const DeleteBtn = ({deleteListing, id}) => {
 // add delete function here
@@ -12,7 +13,7 @@ const DeleteBtn = ({deleteListing, id}) => {
                 id="delete-btn"
             onClick = {()=>deleteListing(id)}
             >
-                DELETE
+                <FaTrash />
                 
             </button>
         </div>
