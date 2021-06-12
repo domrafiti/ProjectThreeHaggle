@@ -1,10 +1,8 @@
 import React, { useState, useEffect, Component } from "react";
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 import $ from "jquery";
 import API from "../utils/API";
-import { LexModelBuildingService } from "aws-sdk";
+
 
 function CreateNew() {
   const [formObject, setFormObject] = useState({});
@@ -74,6 +72,7 @@ function CreateNew() {
               let fileName = response.data.locationArray;
               console.log("fileName", fileName);
               ocShowAlert("File Uploaded", "#3089cf");
+              console.log(formObject.listing_category);
               //look into wrapping in set timeout
               API.saveListing({
                 title: formObject.listing_name,
