@@ -55,6 +55,9 @@ export function Profile() {
                 />
               </div>
             ))}
+            <Link to="/new-listing">
+              <button className="btn btn-primary">New Listing</button>
+            </Link>
           </div>
         </div>
 
