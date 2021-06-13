@@ -81,7 +81,7 @@ function Listing() {
       {faved ? (
         <Redirect to="/profile" />
       ) : (
-        <div className="card my-3 mx-auto" id="listing-div">
+        <div className=" container container-fluid my-5 card" id="listing-div">
           <div className="row ">
             <div className="col-md-6">
               <img

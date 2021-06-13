@@ -111,7 +111,7 @@ function CreateNew() {
   return (
     <div className="container">
       <div className="row mt-4">
-        <div className="col-md-6">
+        <div className="col-md-6" style={{color:"#fff", marginTop:"50px"}}>
           <h2>Create a New Listing:</h2>
           <form className="form new-project-form">
             <div className="form-group">
@@ -187,7 +187,7 @@ function CreateNew() {
               <button
                 id="listing-create"
                 type="submit"
-                className="btn btn-info mt-4 mb-4"
+                className="btn btn-primary mt-4 mb-4"
                 onClick={multipleFileUploadHandler}
               >
                 Create Listing
