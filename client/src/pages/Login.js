@@ -34,12 +34,12 @@ export function Login() {
   return (
     <div className="container container-fluid ">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6" style={{ color:"#fff", margin: "50px auto"}} >
           <h2>Login</h2>
 
           <form className="form new-project-form">
             <div className="form-group">
-              <label htmlFor="email-login">email:</label>
+              <label htmlFor="email-login">Email:</label>
               <input
                 className="form-input"
                 type="text"
@@ -48,7 +48,7 @@ export function Login() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password-login">password:</label>
+              <label htmlFor="password-login">Password:</label>
               <input
                 className="form-input"
                 type="password"
@@ -56,13 +56,13 @@ export function Login() {
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group" style={{marginTop:"20px"}}>
               <button className="btn btn-primary" type="submit" onClick={login}>
                 Login
               </button>
             </div>
           </form>
-          <div>
+          <div style={{marginTop:"20px"}}>
             <p>Don't have an account?</p>
             <Link to="/signup">
               <button className="btn btn-primary">Sign-up</button>
