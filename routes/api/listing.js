@@ -14,4 +14,11 @@ router
     .put(listingsController.update)
     .delete(listingsController.remove);
 
+router
+    .route("/edit/:id")
+    .get(listingsController.findById)
+    .put(listingsController.update)
+    .delete(listingsController.remove);
+
+
 module.exports = router;

@@ -8,13 +8,15 @@ const bcrypt = require("bcryptjs");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const User = require("./models/user");
-require('dotenv').config();
+require("dotenv").config();
 const logger = require("morgan");
-
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(
+  "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"
+);
 // Define middleware here
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -45,6 +47,10 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
+app.get("/api", (req, res, next) => {
+  res.send("API Status: I'm awesome");
+});
 
 app.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
@@ -83,6 +89,26 @@ app.post("/user", (req, res) => {
   res.send(req.user);
 });
 
+app.post("/send", async (req, res) => {
+  const msg = {
+    to: "brice.huisken@gmail.com",
+    from: "haggleinc@gmail.com",
+    subject: "Sending with SendGrid is Fun",
+    text: "and easy to do anywhere, even with Node.js",
+    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+  };
+  try {
+    await sgMail.send(msg);
+    console.log("something");
+    return;
+  } catch (error) {
+    console.error(error);
+    if (error.response) {
+      console.error(error.response.body);
+    }
+    res.redirect("back");
+  }
+});
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Haggle",
