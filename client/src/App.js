@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import FileUpload from "./components/Upload";
+import Message from "./components/Message";
 import FileUploadMany from "./components/UploadMany";
 import CreateNew from "./pages/createNew";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -55,6 +56,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
+        <Message />
       </Router>
     </div>
   );

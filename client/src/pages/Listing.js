@@ -3,16 +3,17 @@ import { Link, useParams, Redirect } from "react-router-dom";
 import API from "../utils/API";
 import FavStar from "../components/FavStar";
 import axios from "axios";
+import StartHaggle from "../components/startHaggle";
 
 function Listing() {
   // Setting our component's initial state
   const [listing, setListing] = useState({});
   const [faved, setFaved] = useState(false);
+  const [ownListing, setOwnListing] = useState(false);
   let { id } = useParams();
   let myListing = listing.user || {};
   let loggedUser = localStorage.getItem("userId");
   // Load all books and store them with setBooks
-  console.log(listing.user);
   useEffect(() => {
     loadListing();
   }, [id]);
@@ -22,7 +23,11 @@ function Listing() {
     API.getListing(id)
       .then((res) => {
         let listingData = res.data;
-        console.log(listingData);
+        console.log(listingData.user._id);
+        if (listingData.user._id === loggedUser) {
+          console.log("its a match");
+          setOwnListing(true);
+        }
         setListing(listingData);
       })
       .catch((err) => console.log(err));
@@ -78,30 +83,44 @@ function Listing() {
                 </p>
                 <p>Category: {listing.category}</p>
                 <p>Status: {listing.status}</p>
-                {loggedUser ? (
+                {ownListing ? (
                   <div>
                     <button
-                      className="btn btn-info mt-4 mb-4"
-                      onClick={makeFavorite}
+                      className="btn btn-info mt-2 mb-2"
+                      onClick={editListing}
                     >
-                      Mark Favorite
+                      Edit
                     </button>
                   </div>
                 ) : (
-                  <div>
-                    <a className="btn btn-info mt-4 mb-4" href="/login">
-                      Mark Favorite
-                    </a>
-                  </div>
+                  <>
+                    {loggedUser ? (
+                      <>
+                        <div>
+                          <button
+                            className="btn btn-info mt-2 mb-2"
+                            onClick={makeFavorite}
+                          >
+                            <span role="img" aria-label="money">
+                              <i className="fas fa-thumbs-up"></i>
+                            </span>{" "}
+                            Mark Favorite
+                          </button>
+                        </div>
+                        <StartHaggle />
+                      </>
+                    ) : (
+                      <div>
+                        <a className="btn btn-info m2-4 mb-2" href="/login">
+                          <span role="img" aria-label="money">
+                            <i className="fas fa-thumbs-up"></i>
+                          </span>{" "}
+                          Mark Favorite
+                        </a>
+                      </div>
+                    )}
+                  </>
                 )}
-                <div>
-                  <button
-                    className="btn btn-info mt-4 mb-4"
-                    onClick={editListing}
-                  >
-                    Edit
-                  </button>
-                </div>
               </div>
             </div>
           </div>
