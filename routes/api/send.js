@@ -1,6 +1,6 @@
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(
-  "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"
+  ""
 );
 const express = require("express");
 const router = express.Router();
