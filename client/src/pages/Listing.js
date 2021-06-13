@@ -12,7 +12,7 @@ function Listing() {
   let myListing = listing.user || {};
   let loggedUser = localStorage.getItem("userId");
   // Load all books and store them with setBooks
-  console.log(listing.user);
+  console.log('15-listing.js', listing.user);
   useEffect(() => {
     loadListing();
   }, [id]);
@@ -102,6 +102,7 @@ function Listing() {
                     Edit
                   </button>
                 </div>
+
               </div>
             </div>
           </div>
