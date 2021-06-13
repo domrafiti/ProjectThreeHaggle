@@ -153,6 +153,7 @@ form .form-group {
 form .form-input,
 form .form-textarea {
   display: block;
+  
 }
 
 form select {
@@ -180,7 +181,9 @@ form .form-input {
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
+  margin-left: 0px;
 }
+  
 
 form .form-input.form-input-squared {
   border-radius: 0;
