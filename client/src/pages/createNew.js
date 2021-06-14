@@ -13,8 +13,8 @@ function CreateNew() {
     const imagePath = event.target.files;
     setFormObject({ ...formObject, [name]: value });
     setImagePath({ imagePath });
-    console.log("image path", imagePath);
-    console.log(formObject);
+    //console.log("image path", imagePath);
+    //console.log(formObject);
   }
 
   // ShowAlert Function
@@ -35,15 +35,15 @@ function CreateNew() {
   function multipleFileUploadHandler(event) {
     event.preventDefault();
     const data = new FormData();
-    console.log(data);
+    //console.log(data);
     let selectedFiles = imagePath.imagePath;
-    console.log("selected files", selectedFiles);
+    //console.log("selected files", selectedFiles);
     // If file selected
     if (selectedFiles) {
-      console.log(selectedFiles.length);
+      //console.log(selectedFiles.length);
       for (let i = 0; i < selectedFiles.length; i++) {
         data.append("galleryImage", selectedFiles[i], selectedFiles[i].name);
-        console.log("data", data);
+        //console.log("data", data);
       }
       axios
         .post("/api/upload/multiple-file-upload", data, {
@@ -54,8 +54,8 @@ function CreateNew() {
           },
         })
         .then((response) => {
-          console.log("response", response);
-          console.log("res", response.status);
+          //console.log("response", response);
+          //console.log("res", response.status);
           if (200 === response.status) {
             // If file size is larger than expected.
             if (response.data.error) {
@@ -70,9 +70,9 @@ function CreateNew() {
             } else {
               // Success
               let fileName = response.data.locationArray;
-              console.log("fileName", fileName);
+              //console.log("fileName", fileName);
               ocShowAlert("File Uploaded", "#3089cf");
-              console.log(formObject.listing_category);
+              //console.log(formObject.listing_category);
               //look into wrapping in set timeout
               API.saveListing({
                 title: formObject.listing_name,
@@ -98,7 +98,7 @@ function CreateNew() {
         })
         .catch((error) => {
           // If another error
-          console.log("error catch", error);
+          // console.log("error catch", error);
           ocShowAlert(error, "red");
         });
     } else {
@@ -110,7 +110,7 @@ function CreateNew() {
   return (
     <div className="container">
       <div className="row mt-4">
-        <div className="col-md-6" style={{color:"#fff", marginTop:"50px"}}>
+        <div className="col-md-6" style={{ color: "#fff", marginTop: "50px" }}>
           <h2>Create a New Listing:</h2>
           <form className="form new-project-form">
             <div className="form-group">
@@ -171,11 +171,11 @@ function CreateNew() {
                     Upload Muliple Images
                   </h3>
                   <p className="text-muted" style={{ marginLeft: "12px" }}>
-                    Upload Size: 400px x 400px ( Max 5MB )
+                    Upload Size: Max 5MB
                   </p>
                 </div>
-                <div className="card-body">
-                  <p className="card-text">
+                <div className="card-body" style={{ color: "#555", marginLeft: "12px" }}>
+                  <p className="card-text" >
                     Please upload the Gallery Images for your gallery
                   </p>
                   <input type="file" multiple onChange={handleInputChange} />
@@ -192,13 +192,11 @@ function CreateNew() {
                 Create Listing
               </button>
             </div>
-            {/* <button id="listing-create" type="submit" className="btn btn-primary">
-                            Create
-                        </button> */}
+
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

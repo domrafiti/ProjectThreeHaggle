@@ -13,10 +13,7 @@ const logger = require("morgan");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(
-  "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"
-);
+
 // Define middleware here
 
 app.use(logger("dev"));
@@ -56,63 +53,63 @@ app.use(routes);
 //   res.send("API Status: I'm awesome");
 // });
 
-app.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
-    if (!user) res.send("No user exists");
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        res.send("Successfully authenticated");
-        console.log(req.user);
-      });
-    }
-  })(req, res, next);
-});
-app.post("/api/users", (req, res) => {
-  console.log("first place");
-  User.findOne({ username: req.body.username }, async (err, doc) => {
-    console.log("Second place");
-    if (err) throw err;
-    if (doc) res.send("User already exists");
-    if (!doc) {
-      const hashedPassword = await bcrypt.hash(req.body.password, 10);
+// app.post("/login", (req, res, next) => {
+//   passport.authenticate("local", (err, user, info) => {
+//     if (err) throw err;
+//     if (!user) res.send("No user exists");
+//     else {
+//       req.logIn(user, (err) => {
+//         if (err) throw err;
+//         res.send("Successfully authenticated");
+//         console.log(req.user);
+//       });
+//     }
+//   })(req, res, next);
+// });
+// app.post("/api/users", (req, res) => {
+//   console.log("first place");
+//   User.findOne({ username: req.body.username }, async (err, doc) => {
+//     console.log("Second place");
+//     if (err) throw err;
+//     if (doc) res.send("User already exists");
+//     if (!doc) {
+//       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-      const newUser = new User({
-        name: req.body.name,
-        username: req.body.username,
-        password: hashedPassword,
-      });
-      console.log("Third place");
-      await newUser.save();
-      res.send("User created");
-    }
-  });
-});
-app.post("/user", (req, res) => {
-  res.send(req.user);
-});
+//       const newUser = new User({
+//         name: req.body.name,
+//         username: req.body.username,
+//         password: hashedPassword,
+//       });
+//       console.log("Third place");
+//       await newUser.save();
+//       res.send("User created");
+//     }
+//   });
+// });
+// app.post("/user", (req, res) => {
+//   res.send(req.user);
+// });
 
-app.post("/send", async (req, res) => {
-  const msg = {
-    to: "brice.huisken@gmail.com",
-    from: "haggleinc@gmail.com",
-    subject: "Sending with SendGrid is Fun",
-    text: "and easy to do anywhere, even with Node.js",
-    html: "<strong>and easy to do anywhere, even with Node.js</strong>",
-  };
-  try {
-    await sgMail.send(msg);
-    console.log("something");
-    return;
-  } catch (error) {
-    console.error(error);
-    if (error.response) {
-      console.error(error.response.body);
-    }
-    res.redirect("back");
-  }
-});
+// app.post("/send", async (req, res) => {
+//   const msg = {
+//     to: "brice.huisken@gmail.com",
+//     from: "haggleinc@gmail.com",
+//     subject: "Sending with SendGrid is Fun",
+//     text: "and easy to do anywhere, even with Node.js",
+//     html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+//   };
+//   try {
+//     await sgMail.send(msg);
+//     console.log("something");
+//     return;
+//   } catch (error) {
+//     console.error(error);
+//     if (error.response) {
+//       console.error(error.response.body);
+//     }
+//     res.redirect("back");
+//   }
+// });
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/Haggle",
