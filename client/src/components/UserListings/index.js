@@ -23,11 +23,10 @@ const UserListings = ({ myListings, users, setUpdate, loggedIn }) => {
         <div
           className="accordion accordion-flush"
           id="accordionFlushExample"
-          style={{ maxWidth: "540px" }}
           key={myListings._id}
         >
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="flush-headingOne">
+          <div className="accordion-item"   >
+            <h2  className="accordion-header" id="flush-headingOne"  >
               <button
                 className="accordion-button collapsed"
                 type="button"
@@ -35,6 +34,8 @@ const UserListings = ({ myListings, users, setUpdate, loggedIn }) => {
                 data-bs-target="#flush-collapseOne"
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
+                
+
               >
                 {myListings.title}
               </button>
@@ -48,12 +49,12 @@ const UserListings = ({ myListings, users, setUpdate, loggedIn }) => {
             >
               <div className="accordion-body">
                 <div className="row">
-                  <div className="col-md-12">
+                  <div className="col-md-12" style={{ marginBottom:"20px" }}>
                     <small className="text-muted">
                       Created on {myListings.date_created}
                     </small>
                   </div>
-                  <div className="col-md-4 ">
+                  <div className="col-md-6 ">
                     <img
                       src={myListings.image_path}
                       alt={myListings.title}
@@ -61,21 +62,25 @@ const UserListings = ({ myListings, users, setUpdate, loggedIn }) => {
                     />
                   </div>
 
-                  <div className="col-md-6">{myListings.description}</div>
+                  <div className="col-md-6" style={{ fontSize:"11px"}}>{myListings.description}</div>
+                  <div className="row">
+                    <div className="col-md-12" style={{ margin: " 20px auto"}}>
+                      <div className="col-md-6" style={{ float:"left" }} >
+                        <a
+                          className="btn btn-primary"
+                          id="listing-view"
+                          href={`/listings/${myListings._id}`}
+                        >
+                          {" "}
+                          View Listing
+                        </a>
+                      
+                      </div>
 
-                  <div className="col-md-4">
-                    <a
-                      className="btn btn-primary"
-                      id="listing-view"
-                      href={`/listings/${myListings._id}`}
-                    >
-                      {" "}
-                  View Listing
-                </a>
-                  </div>
-
-                  <div className="col-md-2">
-                    <DeleteBtn deleteListing={deleteListing} id={_id} />
+                      <div className="col-md-1" style={{float:"right" }}>
+                        <DeleteBtn deleteListing={deleteListing} id={_id} />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
