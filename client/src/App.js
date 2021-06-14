@@ -56,7 +56,7 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
-        <Message />
+
       </Router>
     </div>
   );
