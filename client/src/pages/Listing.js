@@ -85,12 +85,12 @@ function Listing() {
         <Redirect to="/profile" />
       ) : (
         <div className=" container container-fluid my-5 card" id="listing-div">
-          <div className="row ">
+          <div className="row " style={{margin:"20px auto"}}>
             <div className="col-md-6">
               <img
                 src={listing.image_path}
                 alt={listing.title}
-                className="my-listing-photo"
+                className="img-fluid img-thumbnail"
               />
             </div>
             <div className="col-md-6">
@@ -237,7 +237,7 @@ function Listing() {
                       <>
                         <div>
                           <button
-                            className="btn btn-info mt-2 mb-2"
+                            className="btn btn-primary mt-2 mb-2"
                             onClick={makeFavorite}
                           >
                             <span role="img" aria-label="money">

@@ -4,7 +4,7 @@ import handshake from "./handshake.jpeg";
 const Carousel = ({ listings }) => {
   let loggedUser = localStorage.getItem("userId");
   return (
-    <div className="col-6">
+    <div className="col-6 carousel-img ">
       <main className="container container-fluid my-5 carousel-custom car-img">
         <div
           id="carouselExampleCaptions"
