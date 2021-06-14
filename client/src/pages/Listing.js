@@ -82,16 +82,18 @@ function Listing() {
       {faved ? (
         <Redirect to="/profile" />
       ) : (
+
         <div className=" container container-fluid my-5 card" id="listing-div">
-          <div className="row ">
-            <div className="col-md-6">
+          <div className="row " style={{ margin: "20px " }}>
+            {/* <div className="col-md-12 "> */}
+            <div className="col-md-4" style={{ float: "left" }}>
               <img
                 src={listing.image_path}
                 alt={listing.title}
-                className="my-listing-photo"
+                className="img-fluid img-thumbnail"
               />
             </div>
-            <div className="col-md-6">
+            <div className="col-md-8">
               <div className="card-body">
                 <h2 className="card-title">{listing.title}</h2>
                 <p className="card-text">{listing.description}</p>
@@ -112,7 +114,7 @@ function Listing() {
                       onClick={editListing}
                     >
                       Edit
-                    </button>
+                        </button>
 
                     <div
                       className="modal fade"
@@ -126,7 +128,7 @@ function Listing() {
                           <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                               Edit Listing
-                            </h5>
+                                </h5>
                             <button
                               type="button"
                               className="btn-close"
@@ -139,7 +141,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="email-login">
                                   Listing Title
-                                </label>
+                                    </label>
                                 <textarea
                                   className="form-input"
                                   type="text"
@@ -151,7 +153,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="password-login">
                                   listing Description
-                                </label>
+                                    </label>
                                 <textarea
                                   className="form-input"
                                   type="text"
@@ -165,7 +167,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="listing-category">
                                   Categories:
-                                </label>
+                                    </label>
                                 <select
                                   onChange={(e) => setCategory(e.target.value)}
                                   className="form-control"
@@ -175,21 +177,21 @@ function Listing() {
                                 >
                                   <option value="Automobiles">
                                     Automobiles
-                                  </option>
+                                      </option>
                                   <option value="Clothing">Clothing</option>
                                   <option value="Farm Equipment">
                                     Farm Equipment
-                                  </option>
+                                      </option>
                                   <option value="Furniture">Furniture</option>
                                   <option value="Miscellaneous">
                                     Miscellaneous
-                                  </option>
+                                      </option>
                                   <option value="Skilled Labor">
                                     Skilled Labor
-                                  </option>
+                                      </option>
                                   <option value="Unskilled Labor">
                                     Unskilled Labor
-                                  </option>
+                                      </option>
                                 </select>
                               </div>
                             </form>
@@ -201,14 +203,14 @@ function Listing() {
                               data-bs-dismiss="modal"
                             >
                               Close
-                            </button>
+                                </button>
                             <button
                               type="submit"
                               className="btn btn-primary"
                               onClick={update}
                             >
                               Save changes
-                            </button>
+                                </button>
                           </div>
                         </div>
                       </div>
@@ -220,14 +222,14 @@ function Listing() {
                       <>
                         <div>
                           <button
-                            className="btn btn-info mt-2 mb-2"
+                            className="btn btn-primary mt-2 mb-2"
                             onClick={makeFavorite}
                           >
                             <span role="img" aria-label="money">
                               <i className="fas fa-thumbs-up"></i>
                             </span>{" "}
-                            Mark Favorite
-                          </button>
+                                Mark Favorite
+                              </button>
                         </div>
                         <StartHaggle />
                       </>
@@ -237,19 +239,19 @@ function Listing() {
                           <span role="img" aria-label="money">
                             <i className="fas fa-thumbs-up"></i>
                           </span>{" "}
-                          Mark Favorite
-                        </a>
+                              Mark Favorite
+                            </a>
                       </div>
                     )}
                   </>
                 )}
-
               </div>
             </div>
           </div>
+          {/* </div> */}
         </div>
-      )
-      }
+
+      )}
     </>
   );
 }

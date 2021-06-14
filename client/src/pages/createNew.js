@@ -111,7 +111,7 @@ function CreateNew() {
     <div className="container">
       <div className="row mt-4">
         <div className="col-md-6" style={{ color: "#fff", marginTop: "50px" }}>
-          <h2>Create a New Listing:</h2>
+          <h2><strong>Create a New Listing:</strong></h2>
           <form className="form new-project-form">
             <div className="form-group">
               <label htmlFor="listing-name">Listing Name:</label>
