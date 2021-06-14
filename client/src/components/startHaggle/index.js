@@ -27,7 +27,7 @@ const StartHaggle = () => {
     <div>
       <button
         type="button"
-        className="btn btn-info mt-2 mb-2"
+        className="btn btn-primary mt-2 mb-2"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FiveStar from "../FiveStar";
-// import Placeholder from './Placeholder.png';
 import API from "../../utils/API";
+
 
 const BioImg = ({ users }) => {
   // Function to set a rating, leave a review, average stars, Stars = ACE
@@ -32,11 +32,11 @@ const BioImg = ({ users }) => {
     <div>
       <div>
         <h2 className="ml-3" style={{ color: "white" }}>
-          Welcome {users.name}!{" "}
+          <strong>Welcome {users.name}!{" "}</strong>
         </h2>
       </div>
 
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card" style={{ background: "", width: "18rem" }}>
         <img
           src={users.picture_path}
           className="card-img-top img-thumbnail rounded-circle z-depth-2"

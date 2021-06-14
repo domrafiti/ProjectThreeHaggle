@@ -15,8 +15,8 @@ const FavoriteList = ({ myFavorites }) => {
   };
   return (
     <div key={myFavorites._id}>
-      <div className="card w-100 ">
-        <div className="card-body row">
+      <div className="card w-100 " style={{marginBottom: "20px"}}>
+        <div className="card-body row" >
           <a
             type="button"
             style={{ color: "#212529" }}
