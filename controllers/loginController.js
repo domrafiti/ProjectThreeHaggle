@@ -26,18 +26,16 @@ module.exports = {
     const person = await User.findOne({ username });
     if (!person) return done(null, false);
     const validPassword = await bcrypt.compare(password, person.password);
-    console.log(password, person.password);
+    //console.log(password, person.password);
     if (validPassword) {
-      console.log("23");
+      //console.log("23");
       const { password, name, ...rest } = person;
       const userInfo = Object.assign({}, { ...rest });
       const token = createToken(person);
 
       const decodedToken = jwtDecode(token);
       const expiresAt = decodedToken.exp;
-      console.log(
-        `token: ${token}, expiresAt: ${expiresAt}, userInfo: ${userInfo}`
-      );
+      //console.log(`token: ${token}, expiresAt: ${expiresAt}, userInfo: ${userInfo}`);
       return res.status(200).json({
         token,
         expiresAt,
@@ -45,7 +43,7 @@ module.exports = {
         message: "Successful authentication!",
       });
     } else {
-      console.log("Noope");
+      //console.log("Noope");
       return res.status(403).json({
         message: "Wrong email or password.",
       });

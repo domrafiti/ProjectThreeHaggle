@@ -8,7 +8,7 @@ export function Login() {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-  const [data, setData] = useState(null);
+  //const [data, setData] = useState(null);
 
   useEffect(() => {
     window.location.reload.bind(window.location);
@@ -39,7 +39,7 @@ export function Login() {
   return (
     <div className="container container-fluid ">
       <div className="row">
-        <div className="col-md-6" style={{ color:"#fff", margin: "50px auto"}} >
+        <div className="col-md-6" style={{ color: "#fff", margin: "50px auto" }} >
           <h2>Login</h2>
 
           <form className="form new-project-form">
@@ -61,13 +61,13 @@ export function Login() {
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
-            <div className="form-group" style={{marginTop:"20px"}}>
+            <div className="form-group" style={{ marginTop: "20px" }}>
               <button className="btn btn-primary" type="submit" onClick={login}>
                 Login
               </button>
             </div>
           </form>
-          <div style={{marginTop:"20px"}}>
+          <div style={{ marginTop: "20px" }}>
             <p>Don't have an account?</p>
             <Link to="/signup">
               <button className="btn btn-primary">Sign-up</button>

@@ -19,10 +19,7 @@ function Listing() {
   let loggedUser = localStorage.getItem("userId");
 
   // Load all books and store them with setBooks
-<<<<<<< HEAD
-  console.log('15-listing.js', listing.user);
-=======
->>>>>>> c0acd3a0284e4aca76459e51d5bf34d8a8bcf48f
+  //console.log('15-listing.js', listing.user);
   useEffect(() => {
     loadListing();
   }, [id]);
@@ -46,9 +43,9 @@ function Listing() {
     API.getListing(id)
       .then((res) => {
         let listingData = res.data;
-        console.log(listingData.user._id);
+        //console.log(listingData.user._id);
         if (listingData.user._id === loggedUser) {
-          console.log("its a match");
+          //console.log("its a match");
           setOwnListing(true);
         }
         setListing(listingData);
@@ -246,23 +243,13 @@ function Listing() {
                     )}
                   </>
                 )}
-<<<<<<< HEAD
-                <div>
-                  <button
-                    className="btn btn-info mt-4 mb-4"
-                    onClick={editListing}
-                  >
-                    Edit
-                  </button>
-                </div>
 
-=======
->>>>>>> c0acd3a0284e4aca76459e51d5bf34d8a8bcf48f
               </div>
             </div>
           </div>
         </div>
-      )}
+      )
+      }
     </>
   );
 }

@@ -11,18 +11,18 @@ const BioImg = ({ users }) => {
       .then((res) => {
         //not getting setUser to actual set the user when called.
         let userData = res.data;
-        console.log(res.data);
+        //console.log(res.data);
         let ratings = res.data.total_ratings;
         let total = 0;
         for (let i = 0; i < ratings.length; i++) {
           total = ratings[i] + total;
-          console.log(total);
+          //console.log(total);
         }
         total = { averageRating: total / ratings.length };
-        console.log(total);
+        //console.log(total);
         //setUsers(res.data, total)
         setUsers(userData);
-        console.log(users);
+        //console.log(users);
       })
       .catch((err) => console.log(err));
   }
