@@ -174,7 +174,7 @@ function Signup() {
                 {/* Start of Single File Upload for Profile Picture */}
                 {/* For Alert box*/}
                 <div id="oc-alert-container form-group"></div>{/* Single File Upload*/}
-                <div className="card border-light mb-3 col-md-6" style={{ float: "right", boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)', marginTop: "50px" }}>
+                <div className="card border-light mb-3 col-md-6 upload-card " style={{ float: "right", boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)', marginTop: "50px" }}>
                   <div className="card-header">
                     <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
                     <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 5MB )</p>

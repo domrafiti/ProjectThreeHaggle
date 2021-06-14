@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import FiveStar from "../FiveStar";
 import API from "../../utils/API";
 
-
 const BioImg = ({ users }) => {
   // Function to set a rating, leave a review, average stars, Stars = ACE
 
@@ -32,7 +31,7 @@ const BioImg = ({ users }) => {
     <div>
       <div>
         <h2 className="ml-3" style={{ color: "white" }}>
-          <strong>Welcome {users.name}!{" "}</strong>
+          <strong>Welcome {users.name}! </strong>
         </h2>
       </div>
 
@@ -44,7 +43,7 @@ const BioImg = ({ users }) => {
         />
         <div className="card-body">
           <p className="card-text">{users.email}</p>
-          <p className="card-text"> rating status goes here</p>
+          <p className="card-text"> Rating</p>
           <p className="card-text">
             <FiveStar />
           </p>

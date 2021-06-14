@@ -10,7 +10,8 @@ function Listing() {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [category, setCategory] = useState();
-
+  const [status, setStatus] = useState();
+  const [updated, setUpdated] = useState(false);
   const [listing, setListing] = useState({});
   const [faved, setFaved] = useState(false);
   const [ownListing, setOwnListing] = useState(false);
@@ -31,9 +32,11 @@ function Listing() {
         title: title,
         description: description,
         category: category,
+        status: status,
       })
       .then((res) => {
-        window.location.reload("/listings/" + id);
+        setUpdated(true);
+        //window.location.reload("/listings/" + id);
       })
       .catch((err) => console.log(err));
   }
@@ -79,21 +82,19 @@ function Listing() {
 
   return (
     <>
-      {faved ? (
+      {faved || updated ? (
         <Redirect to="/profile" />
       ) : (
-
         <div className=" container container-fluid my-5 card" id="listing-div">
-          <div className="row " style={{ margin: "20px " }}>
-            {/* <div className="col-md-12 "> */}
-            <div className="col-md-4" style={{ float: "left" }}>
+          <div className="row " style={{ margin: "20px auto" }}>
+            <div className="col-md-6">
               <img
                 src={listing.image_path}
                 alt={listing.title}
                 className="img-fluid img-thumbnail"
               />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-6">
               <div className="card-body">
                 <h2 className="card-title">{listing.title}</h2>
                 <p className="card-text">{listing.description}</p>
@@ -114,7 +115,7 @@ function Listing() {
                       onClick={editListing}
                     >
                       Edit
-                        </button>
+                    </button>
 
                     <div
                       className="modal fade"
@@ -128,7 +129,7 @@ function Listing() {
                           <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLabel">
                               Edit Listing
-                                </h5>
+                            </h5>
                             <button
                               type="button"
                               className="btn-close"
@@ -141,7 +142,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="email-login">
                                   Listing Title
-                                    </label>
+                                </label>
                                 <textarea
                                   className="form-input"
                                   type="text"
@@ -153,7 +154,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="password-login">
                                   listing Description
-                                    </label>
+                                </label>
                                 <textarea
                                   className="form-input"
                                   type="text"
@@ -167,7 +168,7 @@ function Listing() {
                               <div className="form-group">
                                 <label htmlFor="listing-category">
                                   Categories:
-                                    </label>
+                                </label>
                                 <select
                                   onChange={(e) => setCategory(e.target.value)}
                                   className="form-control"
@@ -177,21 +178,35 @@ function Listing() {
                                 >
                                   <option value="Automobiles">
                                     Automobiles
-                                      </option>
+                                  </option>
                                   <option value="Clothing">Clothing</option>
                                   <option value="Farm Equipment">
                                     Farm Equipment
-                                      </option>
+                                  </option>
                                   <option value="Furniture">Furniture</option>
                                   <option value="Miscellaneous">
                                     Miscellaneous
-                                      </option>
+                                  </option>
                                   <option value="Skilled Labor">
                                     Skilled Labor
-                                      </option>
+                                  </option>
                                   <option value="Unskilled Labor">
                                     Unskilled Labor
-                                      </option>
+                                  </option>
+                                </select>
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="listing-status">Status:</label>
+                                <select
+                                  onChange={(e) => setStatus(e.target.value)}
+                                  className="form-control"
+                                  type="text"
+                                  id="listing-status"
+                                  name="listing-status"
+                                >
+                                  <option value="Active">Active</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Accepted">Accepted</option>
                                 </select>
                               </div>
                             </form>
@@ -203,14 +218,15 @@ function Listing() {
                               data-bs-dismiss="modal"
                             >
                               Close
-                                </button>
+                            </button>
                             <button
                               type="submit"
                               className="btn btn-primary"
+                              data-bs-dismiss="modal"
                               onClick={update}
                             >
                               Save changes
-                                </button>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -228,10 +244,16 @@ function Listing() {
                             <span role="img" aria-label="money">
                               <i className="fas fa-thumbs-up"></i>
                             </span>{" "}
-                                Mark Favorite
-                              </button>
+                            Mark Favorite
+                          </button>
                         </div>
-                        <StartHaggle />
+                        <StartHaggle
+                          haggleTitle={listing.title}
+                          haggleStatus={listing.status}
+                          haggleUser={myListing.name}
+                          haggleId={listing._id}
+                          haggleEmail={myListing.username}
+                        />
                       </>
                     ) : (
                       <div>
@@ -239,8 +261,8 @@ function Listing() {
                           <span role="img" aria-label="money">
                             <i className="fas fa-thumbs-up"></i>
                           </span>{" "}
-                              Mark Favorite
-                            </a>
+                          Mark Favorite
+                        </a>
                       </div>
                     )}
                   </>
@@ -248,9 +270,7 @@ function Listing() {
               </div>
             </div>
           </div>
-          {/* </div> */}
         </div>
-
       )}
     </>
   );

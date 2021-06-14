@@ -65,7 +65,7 @@ export function Profile() {
           </div>
         </div>
 
-        <div className="col-md-6">
+        <div className="col-md-6 myFavorites">
           <h2 style={{ color: "#fff" }}><strong>My Favorites</strong></h2>
           {myFavorites.map((myFavorites) => (
             <div>

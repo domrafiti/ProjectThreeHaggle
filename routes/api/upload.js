@@ -13,8 +13,8 @@ const dotenv = require('dotenv').config({ path: '../.env' })
 */
 
 aws.config.update({
-    secretAccessKey: 'eEy6PjTFJDx8W3Te98hBvKSDZbQiItUuNLdVBs2K',//process.env.AWS_SECRET_ACCESS_KEY,
-    accessKeyId: 'AKIA43IHXT4I4F6AFK56',//process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     Bucket: 'haggle-project-three',
     region: 'us-east-2'
 });
@@ -54,7 +54,8 @@ function checkFileType(file, cb) {
     // Check ext
     const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
     // Check mime
-    const mimetype = filetypes.test(file.mimetype); if (mimetype && extname) {
+    const mimetype = filetypes.test(file.mimetype);
+    if (mimetype && extname) {
         console.log('checked files good');
         return cb(null, true);
     } else {
