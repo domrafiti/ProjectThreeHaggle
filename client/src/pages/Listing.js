@@ -10,7 +10,8 @@ function Listing() {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [category, setCategory] = useState();
-
+  const [status, setStatus] = useState();
+  const [updated, setUpdated] = useState(false);
   const [listing, setListing] = useState({});
   const [faved, setFaved] = useState(false);
   const [ownListing, setOwnListing] = useState(false);
@@ -30,9 +31,11 @@ function Listing() {
         title: title,
         description: description,
         category: category,
+        status: status,
       })
       .then((res) => {
-        window.location.reload("/listings/" + id);
+        setUpdated(true);
+        //window.location.reload("/listings/" + id);
       })
       .catch((err) => console.log(err));
   }
@@ -78,7 +81,7 @@ function Listing() {
 
   return (
     <>
-      {faved ? (
+      {faved || updated ? (
         <Redirect to="/profile" />
       ) : (
         <div className=" container container-fluid my-5 card" id="listing-div">
@@ -191,6 +194,20 @@ function Listing() {
                                   </option>
                                 </select>
                               </div>
+                              <div className="form-group">
+                                <label htmlFor="listing-status">Status:</label>
+                                <select
+                                  onChange={(e) => setStatus(e.target.value)}
+                                  className="form-control"
+                                  type="text"
+                                  id="listing-status"
+                                  name="listing-status"
+                                >
+                                  <option value="Active">Active</option>
+                                  <option value="Pending">Pending</option>
+                                  <option value="Accepted">Accepted</option>
+                                </select>
+                              </div>
                             </form>
                           </div>
                           <div className="modal-footer">
@@ -204,6 +221,7 @@ function Listing() {
                             <button
                               type="submit"
                               className="btn btn-primary"
+                              data-bs-dismiss="modal"
                               onClick={update}
                             >
                               Save changes
@@ -228,7 +246,13 @@ function Listing() {
                             Mark Favorite
                           </button>
                         </div>
-                        <StartHaggle />
+                        <StartHaggle
+                          haggleTitle={listing.title}
+                          haggleStatus={listing.status}
+                          haggleUser={myListing.name}
+                          haggleId={listing._id}
+                          haggleEmail={myListing.username}
+                        />
                       </>
                     ) : (
                       <div>
