@@ -19,10 +19,10 @@ export default {
     return axios.post("/api/listing", listingData);
   },
   updateListing: function (id) {
-    return axios.put("/api/listings/edit/" + id)
+    return axios.put("/api/listings/edit/" + id);
   },
   editListing: function (id) {
-    return axios.get("/api/listings/edit/" + id)
+    return axios.get("/api/listings/edit/" + id);
   },
   getUsers: function () {
     return axios.get("/api/users");
@@ -37,10 +37,7 @@ export default {
   updateUser: function (data) {
     return axios.put("/api/users/id", data);
   },
-  addFavorite: function (data) {
-    console.log(data);
-    return axios.put("/api/users/favorites/" + data.id);
-  },
+
   verifyUser: function (data) {
     console.log(data);
     return axios.post("/api/login", data);

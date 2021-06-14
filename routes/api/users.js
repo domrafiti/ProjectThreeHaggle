@@ -4,6 +4,7 @@ const userController = require("../../controllers/userController");
 // Matches with "/api/users"
 router.route("/").get(userController.findAll).post(userController.create);
 
+// Matches with "/api/users/favorites/:id"
 router.route("/favorites/:id").put(userController.favorite);
 
 // Matches with "/api/users/:id"
@@ -13,8 +14,6 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
-router
-  .route("/id")
-  .put(userController.update)
+router.route("/id").put(userController.update);
 
 module.exports = router;
