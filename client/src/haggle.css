@@ -153,6 +153,7 @@ form .form-group {
 form .form-input,
 form .form-textarea {
   display: block;
+  
 }
 
 form select {
@@ -180,7 +181,9 @@ form .form-input {
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
+  margin-left: 0px;
 }
+  
 
 form .form-input.form-input-squared {
   border-radius: 0;
@@ -202,6 +205,20 @@ label form [type='radio'] {
 @media only screen and (max-width: 768px) {
   #listing-create {
     margin-top: 5px;
+  }
+
+  .carousel-img {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .welcome-col {
+    width:50%;
+    
+  }
+
+  .myFavorites{
+    margin-left: 100px;
   }
 }
 
@@ -228,7 +245,13 @@ label form [type='radio'] {
 @media only screen and (max-width: 560px) {
   .nav-btn {
     font-size: 38px !important;
+    
   }
+
+  #haggle{
+    margin-bottom:50px;
+  }
+
 }
 
 @media only screen and (max-width: 450px) {
@@ -241,17 +264,61 @@ label form [type='radio'] {
   .nav-btn {
     font-size: 36px !important;
   }
+
+  #haggle{
+    margin-bottom:50px;
+  }
+
+  .carousel-img {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .welcome-col {
+    width:75%;
+  }
+
+  .myFavorites{
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
 }
 
-@media only screen and (max-width: 430px) {
-  .nav-btn {
-    font-size: 28px !important;
+@media only screen and (max-width: 375px) {
+  .nav-btn, 
+  .fa-hands-helping{
+    font-size: 36px !important;
   }
+
+  .upload-card {
+    width: 100%;
+  }
+
+  #haggle{
+    margin-bottom:50px;
+  }
+  .carousel-img {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .welcome-col {
+    width:90%;
+  }
+
+  body {
+    min-height: 100%
+  }
+
+
+
 }
 
 @media only screen and (max-width: 340px) {
-  .nav-btn {
+  .nav-btn
+  .fa-hands-helping {
     font-size: 24px !important;
+    
   }
 
   .bio img {
@@ -259,4 +326,23 @@ label form [type='radio'] {
     right: 20px;
     margin-top: 10px;
   }
+
+  .upload-card {
+    width: 100%;
+  }
+
+  #haggle{
+    margin-bottom:50px;
+  }
+
+  .carousel-img {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .welcome-col {
+    width:100%;
+  }
+
+  
 }

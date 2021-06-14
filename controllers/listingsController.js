@@ -24,6 +24,14 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
+  haggle: function (req, res) {
+    console.log(req.body.myId, req.body.yourId);
+    Listings.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+
   remove: function (req, res) {
     Listings.findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())

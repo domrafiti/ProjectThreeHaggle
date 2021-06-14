@@ -110,8 +110,8 @@ function CreateNew() {
   return (
     <div className="container">
       <div className="row mt-4">
-        <div className="col-md-6">
-          <h2>Create a New Listing:</h2>
+        <div className="col-md-6" style={{ color: "#fff", marginTop: "50px" }}>
+          <h2><strong>Create a New Listing:</strong></h2>
           <form className="form new-project-form">
             <div className="form-group">
               <label htmlFor="listing-name">Listing Name:</label>
@@ -174,7 +174,7 @@ function CreateNew() {
                     Upload Size: 400px x 400px ( Max 5MB )
                   </p>
                 </div>
-                <div className="card-body">
+                <div className="card-body" style={{ color: "#555" }} >
                   <p className="card-text">
                     Please upload the Gallery Images for your gallery
                   </p>
@@ -186,7 +186,7 @@ function CreateNew() {
               <button
                 id="listing-create"
                 type="submit"
-                className="btn btn-info mt-4 mb-4"
+                className="btn btn-primary mt-4 mb-4"
                 onClick={multipleFileUploadHandler}
               >
                 Create Listing
@@ -198,7 +198,7 @@ function CreateNew() {
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

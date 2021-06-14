@@ -46,7 +46,7 @@ export function Profile() {
           <BioImg users={users} />
 
           <div className="col-md-12 myListing">
-            <h2 style={{ color: "#fff" }}>My Listings</h2>
+            <h2 style={{ color: "#fff" }}><strong>My Listings</strong></h2>
             {myListings.map((myListings) => (
               <div>
                 <UserListings
@@ -58,14 +58,15 @@ export function Profile() {
                 />
               </div>
             ))}
+            <br />
             <Link to="/new-listing">
               <button className="btn btn-primary">New Listing</button>
             </Link>
           </div>
         </div>
 
-        <div className="col-md-6">
-          <h2 style={{ color: "#fff" }}>My Favorites</h2>
+        <div className="col-md-6 myFavorites">
+          <h2 style={{ color: "#fff" }}><strong>My Favorites</strong></h2>
           {myFavorites.map((myFavorites) => (
             <div>
               <FavoriteList myFavorites={myFavorites} />

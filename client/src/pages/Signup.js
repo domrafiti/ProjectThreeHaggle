@@ -121,40 +121,59 @@ function Signup() {
       ) : (
         <div className="container container-fluid">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-12" style={{ color: "#fff" }}>
+
               <h2>Sign-up</h2>
               <form className="form new-project-form">
-                <div className="form-group">
-                  <label htmlFor="name-signup">name:</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="name-signup"
-                    onChange={(e) => setRegisterName(e.target.value)}
-                  />
+                <div className="col-md-6" style={{ float: "left" }}>
+                  <div className="form-group">
+                    <label htmlFor="name-signup">Name:</label>
+                    <input
+                      className="form-input"
+                      type="text"
+                      id="name-signup"
+                      onChange={(e) => setRegisterName(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email-signup">Email:</label>
+                    <input
+                      className="form-input"
+                      type="text"
+                      id="email-signup"
+                      onChange={(e) => setRegisterUsername(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="password-signup">Password:</label>
+                    <input
+                      className="form-input"
+                      type="password"
+                      id="password-signup"
+                      onChange={(e) => setRegisterPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group" style={{ marginTop: "20px", color: "#555" }}>
+                    <button
+                      className="btn btn-primary"
+                      type="submit"
+                      onClick={singleFileUploadHandler}
+                    >
+                      Sign-up
+                    </button>
+                  </div>
+                  <div style={{ marginTop: "20px" }}>
+                    <p>Already have an account?</p>
+                    <Link to="/login">
+                      <button className="btn btn-primary">Login</button>
+                    </Link>
+                  </div>
                 </div>
-                <div className="form-group">
-                  <label htmlFor="email-signup">email:</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="email-signup"
-                    onChange={(e) => setRegisterUsername(e.target.value)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password-signup">password:</label>
-                  <input
-                    className="form-input"
-                    type="password"
-                    id="password-signup"
-                    onChange={(e) => setRegisterPassword(e.target.value)}
-                  />
-                </div>
+
                 {/* Start of Single File Upload for Profile Picture */}
                 {/* For Alert box*/}
                 <div id="oc-alert-container form-group"></div>{/* Single File Upload*/}
-                <div className="card border-light mb-3" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
+                <div className="card border-light mb-3 col-md-6 upload-card " style={{ float: "right", boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)', marginTop: "50px" }}>
                   <div className="card-header">
                     <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
                     <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px ( Max 5MB )</p>
@@ -165,22 +184,9 @@ function Signup() {
                   </div>
                 </div>
                 {/* End of File Upload */}
-                <div className="form-group">
-                  <button
-                    className="btn btn-primary"
-                    type="submit"
-                    onClick={singleFileUploadHandler}
-                  >
-                    Sign-up
-                  </button>
-                </div>
+
               </form>
-              <div>
-                <p>Already have an account?</p>
-                <Link to="/login">
-                  <button className="btn btn-primary">Login</button>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>

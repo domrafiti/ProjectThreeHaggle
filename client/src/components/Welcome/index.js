@@ -5,7 +5,7 @@ import "./style.css";
 const Welcome = () => {
   let loggedUser = localStorage.getItem("userId");
   return (
-    <div className="col-6">
+    <div className="col-6 welcome-col">
       <div className="welcome">
         <h1>
           <strong>Welcome to Haggle!</strong>{" "}
