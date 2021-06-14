@@ -37,9 +37,6 @@ export default {
   updateUser: function (data) {
     return axios.put("/api/users/id", data);
   },
-  haggle: function () {
-    return axios.post("/api/send");
-  },
 
   verifyUser: function (data) {
     console.log(data);
