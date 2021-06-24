@@ -49,9 +49,11 @@ app.use(routes);
 // app.get('/*', function (req, res) {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
+
 // app.get("/api", (req, res, next) => {
 //   res.send("API Status: I'm awesome");
 // });
+
 
 // app.post("/login", (req, res, next) => {
 //   passport.authenticate("local", (err, user, info) => {

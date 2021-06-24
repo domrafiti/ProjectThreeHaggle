@@ -154,7 +154,7 @@ function Signup() {
                       onChange={(e) => setRegisterPassword(e.target.value)}
                     />
                   </div>
-                  <div className="form-group" style={{ marginTop: "20px" }}>
+                  <div className="form-group" style={{ marginTop: "20px", color: "#555" }}>
                     <button
                       className="btn btn-primary"
                       type="submit"
