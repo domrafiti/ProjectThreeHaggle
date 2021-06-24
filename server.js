@@ -13,10 +13,6 @@ const logger = require("morgan");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(
-  "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"
-);
 // Define middleware here
 app.use(logger("dev"));
 app.use(bodyParser.json());
