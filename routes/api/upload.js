@@ -13,10 +13,10 @@ const dotenv = require("dotenv").config({ path: "../.env" });
  */
 
 aws.config.update({
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  Bucket: "haggle-project-three",
-  region: "us-east-2",
+    secretAccessKey: 'zrLu1MTBbAk8IO01J7MFSGj8iJ4EdB0gFTW3emDY', //process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: 'AKIA43IHXT4I7NU2ZQVY',//process.env.AWS_ACCESS_KEY_ID,
+    Bucket: "haggle-project-three",
+    region: "us-east-2",
 });
 
 const s3 = new aws.S3();
@@ -26,24 +26,24 @@ const s3 = new aws.S3();
  */
 
 const profileImgUpload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: "haggle-project-three",
-    acl: "public-read",
-    key: function (req, file, cb) {
-      cb(
-        null,
-        path.basename(file.originalname, path.extname(file.originalname)) +
-          "-" +
-          Date.now() +
-          path.extname(file.originalname)
-      );
+    storage: multerS3({
+        s3: s3,
+        bucket: "haggle-project-three",
+        acl: "public-read",
+        key: function (req, file, cb) {
+            cb(
+                null,
+                path.basename(file.originalname, path.extname(file.originalname)) +
+                "-" +
+                Date.now() +
+                path.extname(file.originalname)
+            );
+        },
+    }),
+    limits: { fileSize: 5000000 }, // In bytes: 2000000 bytes = 2 MB
+    fileFilter: function (req, file, cb) {
+        checkFileType(file, cb);
     },
-  }),
-  limits: { fileSize: 5000000 }, // In bytes: 2000000 bytes = 2 MB
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
 }).single("profileImage");
 
 /**
@@ -54,19 +54,19 @@ const profileImgUpload = multer({
  */
 
 function checkFileType(file, cb) {
-  console.log("checking file type");
-  // Allowed ext
-  const filetypes = /jpeg|jpg|png|gif/;
-  // Check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) {
-    console.log("checked files good");
-    return cb(null, true);
-  } else {
-    cb("Error: Images Only!");
-  }
+    console.log("checking file type");
+    // Allowed ext
+    const filetypes = /jpeg|jpg|png|gif/;
+    // Check ext
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    // Check mime
+    const mimetype = filetypes.test(file.mimetype);
+    if (mimetype && extname) {
+        console.log("checked files good");
+        return cb(null, true);
+    } else {
+        cb("Error: Images Only!");
+    }
 }
 
 /**
@@ -76,31 +76,31 @@ function checkFileType(file, cb) {
  */
 
 router.post("/single-upload", (req, res) => {
-  console.log("Route-Single");
-  profileImgUpload(req, res, (error) => {
-    console.log("call being made");
-    console.log("requestOkokok", req.file);
-    //console.log('error', error);
-    if (error) {
-      console.log("errors 78-upload", error);
-      res.json({ error: error });
-    } else {
-      // If File not found
-      if (req.file === undefined) {
-        console.log("Error: No File Selected!");
-        res.json("Error: No File Selected");
-      } else {
-        // If Success
-        const imageName = req.file.key;
-        const imageLocation = req.file.location;
-        // Save the file name into database into profile model
-        res.json({
-          image: imageName,
-          location: imageLocation,
-        });
-      }
-    }
-  });
+    console.log("Route-Single");
+    profileImgUpload(req, res, (error) => {
+        console.log("call being made");
+        console.log("requestOkokok", req.file);
+        //console.log('error', error);
+        if (error) {
+            console.log("errors 78-upload", error);
+            res.json({ error: error });
+        } else {
+            // If File not found
+            if (req.file === undefined) {
+                console.log("Error: No File Selected!");
+                res.json("Error: No File Selected");
+            } else {
+                // If Success
+                const imageName = req.file.key;
+                const imageLocation = req.file.location;
+                // Save the file name into database into profile model
+                res.json({
+                    image: imageName,
+                    location: imageLocation,
+                });
+            }
+        }
+    });
 });
 // End of single profile upload
 
@@ -112,24 +112,24 @@ router.post("/single-upload", (req, res) => {
 // Multiple File Uploads ( max 4 )
 
 const uploadsBusinessGallery = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: "haggle-project-three",
-    acl: "public-read",
-    key: function (req, file, cb) {
-      cb(
-        null,
-        path.basename(file.originalname, path.extname(file.originalname)) +
-          "-" +
-          Date.now() +
-          path.extname(file.originalname)
-      );
+    storage: multerS3({
+        s3: s3,
+        bucket: "haggle-project-three",
+        acl: "public-read",
+        key: function (req, file, cb) {
+            cb(
+                null,
+                path.basename(file.originalname, path.extname(file.originalname)) +
+                "-" +
+                Date.now() +
+                path.extname(file.originalname)
+            );
+        },
+    }),
+    limits: { fileSize: 5000000 }, // In bytes: 5000000 bytes = 5 MB
+    fileFilter: function (req, file, cb) {
+        checkFileType(file, cb);
     },
-  }),
-  limits: { fileSize: 5000000 }, // In bytes: 5000000 bytes = 5 MB
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
 }).array("galleryImage", 4);
 
 /**
@@ -139,35 +139,35 @@ const uploadsBusinessGallery = multer({
  */
 
 router.post("/multiple-file-upload", (req, res) => {
-  console.log("calling post - listing multi");
-  uploadsBusinessGallery(req, res, (error) => {
-    //console.log('files', req.files);
-    if (error) {
-      console.log("errors", error);
-      res.json({ error: error });
-    } else {
-      // If File not found
-      if (req.files === undefined) {
-        console.log("Error: No File Selected!");
-        res.json("Error: No File Selected");
-      } else {
-        // If Success
-        let fileArray = req.files,
-          fileLocation;
-        const galleryImgLocationArray = [];
-        for (let i = 0; i < fileArray.length; i++) {
-          fileLocation = fileArray[i].location;
-          //console.log('filenm', fileLocation);
-          galleryImgLocationArray.push(fileLocation);
+    console.log("calling post - listing multi");
+    uploadsBusinessGallery(req, res, (error) => {
+        //console.log('files', req.files);
+        if (error) {
+            console.log("errors", error);
+            res.json({ error: error });
+        } else {
+            // If File not found
+            if (req.files === undefined) {
+                console.log("Error: No File Selected!");
+                res.json("Error: No File Selected");
+            } else {
+                // If Success
+                let fileArray = req.files,
+                    fileLocation;
+                const galleryImgLocationArray = [];
+                for (let i = 0; i < fileArray.length; i++) {
+                    fileLocation = fileArray[i].location;
+                    //console.log('filenm', fileLocation);
+                    galleryImgLocationArray.push(fileLocation);
+                }
+                // Save the file name into database
+                res.json({
+                    filesArray: fileArray,
+                    locationArray: galleryImgLocationArray,
+                });
+            }
         }
-        // Save the file name into database
-        res.json({
-          filesArray: fileArray,
-          locationArray: galleryImgLocationArray,
-        });
-      }
-    }
-  });
+    });
 });
 
 // We export the router so that the server.js file can pick it up
