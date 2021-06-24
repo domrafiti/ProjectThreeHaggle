@@ -13,23 +13,24 @@ function Signup() {
   const [registeredUser, setRegisteredUser] = useState("");
   const [data, setData] = useState(null);
   const [imagePath, setImagePath] = useState({});
-  const register = (event) => {
-    event.preventDefault();
-    API.createUser({
-      name: registerName,
-      username: registerUsername,
-      password: registerPassword,
-      picture_path: "",
-      withCredentials: true,
-    })
-      .then((res) => {
-        console.log(res);
-        setRegisteredUser(true);
-      })
-      .catch((err) => {
-        setRegisteredUser(false);
-      });
-  };
+
+  // const register = (event) => {
+  //   event.preventDefault();
+  //   API.createUser({
+  //     name: registerName,
+  //     username: registerUsername,
+  //     password: registerPassword,
+  //     picture_path: "",
+  //     withCredentials: true,
+  //   })
+  //     .then((res) => {
+  //       console.log(res);
+  //       setRegisteredUser(true);
+  //     })
+  //     .catch((err) => {
+  //       setRegisteredUser(false);
+  //     });
+  // };
 
   //File Upload Alert
   const ocShowAlert = (message, background = '#3089cf') => {
@@ -47,9 +48,9 @@ function Signup() {
   };
   const singleFileChangedHandler = (event) => {
     const imagePath = event.target.files;
-    console.log(event.target.files);
+    //console.log(event.target.files);
     setImagePath({ imagePath });
-    console.log("image path", imagePath);
+    //console.log("image path", imagePath);
     // selectedFile: event.target.files[0]
   };
   //File Upload Handler
@@ -57,13 +58,13 @@ function Signup() {
     event.preventDefault();
     const data = new FormData();
     let selectedFile = imagePath.imagePath;
-    console.log("selected files", selectedFile);
+    //console.log("selected files", selectedFile);
     // If file selected
     if (selectedFile) {
-      console.log(selectedFile.length);
+      //console.log(selectedFile.length);
       for (let i = 0; i < selectedFile.length; i++) {
         data.append("profileImage", selectedFile[i], selectedFile[i].name);
-        console.log("data", data);
+        //console.log("data", data);
       }
       // data.append('profileImage', selectedFile, selectedFile.name);
       axios.post('/api/upload/single-upload', data, {
@@ -79,13 +80,13 @@ function Signup() {
             if ('LIMIT_FILE_SIZE' === response.data.error.code) {
               ocShowAlert('Max size: 2MB', 'red');
             } else {
-              console.log(response.data);// If not the given file type
+              //console.log(response.data);// If not the given file type
               ocShowAlert(response.data.error, 'red');
             }
           } else {
             // Success
             let fileName = response.data.location;
-            console.log('fileName', fileName);
+            //console.log('fileName', fileName);
             ocShowAlert('File Uploaded', '#3089cf');
             API.createUser({
               name: registerName,
@@ -95,7 +96,7 @@ function Signup() {
               withCredentials: true,
             })
               .then((res) => {
-                console.log(res);
+                //console.log(res);
                 setRegisteredUser(true);
               })
               .catch((err) => {

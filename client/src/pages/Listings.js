@@ -11,7 +11,7 @@ function Listings() {
   function loadListings() {
     API.getListings()
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         setListings(res.data);
       })
       .catch((err) => console.log(err));

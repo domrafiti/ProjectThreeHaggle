@@ -7,8 +7,8 @@ const UserListings = ({ myListings, users, setUpdate, loggedIn }) => {
   let { _id } = myListings;
   const [deleted, setDelete] = useState(false);
 
-  console.log(myListings);
-  console.log(loggedIn);
+  //console.log(myListings);
+  //console.log(loggedIn);
   function deleteListing(id) {
     API.deleteListing(id)
       .then((res) => setDelete(true))

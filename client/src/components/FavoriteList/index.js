@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import axios from "axios";
 
 const FavoriteList = ({ myFavorites }) => {
-  console.log(myFavorites);
+  //console.log(myFavorites);
   const formatDate = (date) => {
     const theDate = date.substring(0, 10);
     const arrDate = theDate.split("-");
