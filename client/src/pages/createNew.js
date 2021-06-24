@@ -72,7 +72,9 @@ function CreateNew() {
               let fileName = response.data.locationArray;
               //console.log("fileName", fileName);
               ocShowAlert("File Uploaded", "#3089cf");
-              //console.log(formObject.listing_category);
+
+              console.log(formObject.listing_category);
+
               //look into wrapping in set timeout
               API.saveListing({
                 title: formObject.listing_name,
@@ -174,8 +176,10 @@ function CreateNew() {
                     Upload Size: Max 5MB
                   </p>
                 </div>
+
                 <div className="card-body" style={{ color: "#555", marginLeft: "12px" }}>
                   <p className="card-text" >
+
                     Please upload the Gallery Images for your gallery
                   </p>
                   <input type="file" multiple onChange={handleInputChange} />
