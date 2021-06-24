@@ -1,10 +1,8 @@
 import React, { useState, useEffect, Component } from "react";
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import axios from "axios";
 import $ from "jquery";
 import API from "../utils/API";
-import { LexModelBuildingService } from "aws-sdk";
+
 
 function CreateNew() {
   const [formObject, setFormObject] = useState({});
@@ -74,6 +72,7 @@ function CreateNew() {
               let fileName = response.data.locationArray;
               console.log("fileName", fileName);
               ocShowAlert("File Uploaded", "#3089cf");
+              console.log(formObject.listing_category);
               //look into wrapping in set timeout
               API.saveListing({
                 title: formObject.listing_name,
@@ -111,7 +110,7 @@ function CreateNew() {
   return (
     <div className="container">
       <div className="row mt-4">
-        <div className="col-md-6" style={{color:"#fff", marginTop:"50px"}}>
+        <div className="col-md-6" style={{ color: "#fff", marginTop: "50px" }}>
           <h2><strong>Create a New Listing:</strong></h2>
           <form className="form new-project-form">
             <div className="form-group">
@@ -175,7 +174,7 @@ function CreateNew() {
                     Upload Size: 400px x 400px ( Max 5MB )
                   </p>
                 </div>
-                <div className="card-body">
+                <div className="card-body" style={{ color: "#555" }} >
                   <p className="card-text">
                     Please upload the Gallery Images for your gallery
                   </p>
@@ -199,7 +198,7 @@ function CreateNew() {
           </form>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

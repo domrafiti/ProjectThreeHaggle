@@ -26,7 +26,7 @@ const listingSchema = new Schema({
   },
   user: {
     //updated to string for testing purposes - will need to figure out how to get userID value from session/users model.
-    type: Schema.Types.ObjectId,
+    type: String,//Schema.Types.ObjectId,
 
     ref: "User",
   },

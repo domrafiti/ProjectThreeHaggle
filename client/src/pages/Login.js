@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +9,11 @@ export function Login() {
   const [loginPassword, setLoginPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [data, setData] = useState(null);
+
+  useEffect(() => {
+    window.location.reload.bind(window.location);
+  });
+
   const login = (event) => {
     event.preventDefault();
     API.verifyUser({
