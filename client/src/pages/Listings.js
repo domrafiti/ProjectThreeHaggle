@@ -3,7 +3,11 @@ import API from "../utils/API";
 
 function Listings() {
   const [listings, setListings] = useState([]);
+  let [filteredListings, setFilteredListings] = useState([]);
+  let [fullListings, setFullListings] = useState([]);
   const loggedUser = localStorage.getItem("userId");
+  const [haggleStatus, setHaggleStatus] = useState("");
+  const [haggleCategory, setHaggleCategory] = useState("");
   useEffect(() => {
     loadListings();
   }, []);
@@ -13,6 +17,8 @@ function Listings() {
       .then((res) => {
         console.log(res.data);
         setListings(res.data);
+        setFilteredListings(res.data);
+        setFullListings(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -26,8 +32,36 @@ function Listings() {
     return `${month}/${day}/${year}`;
   };
 
+  function handleStatusSelect(e) {
+    setListings(fullListings);
+    let search = e.target.value;
+    handleStatusUpdate();
+  }
+
+  function handleStatusUpdate(search) {
+    console.log(search);
+    if (e.target.value === "Active") {
+      filteredListings = listings.filter(
+        (listing) => listing.status === "Active"
+      );
+      setListings(filteredListings);
+    }
+    // else if (e.target.value === "Pending") {
+    // //   filteredListings = listings.filter(
+    // //     (listing) => listing.status === "Pending"
+    // //   );
+    // //   setListings(filteredListings);
+    // // }
+  }
+
   return (
     <main className="container container-fluid my-5 carousel-custom">
+      <select value={haggleStatus} onChange={handleStatusSelect}>
+        <option value="">All</option>
+        <option value="Active">Active</option>
+        <option value="Pending">Pending</option>
+        <option value="Accepted">Accepted</option>
+      </select>
       {listings
         .filter((listing) => listing.user !== loggedUser)
         .map((listing) => (

@@ -24,7 +24,10 @@ module.exports = {
   findOne: async function (req, res, next) {
     const { username, password } = req.body;
     const person = await User.findOne({ username });
-    if (!person) return done(null, false);
+    if (!person) {
+      console.log("authPerson");
+      return res.status(403).json({ message: "Wrong email or password." });
+    }
     const validPassword = await bcrypt.compare(password, person.password);
     console.log(password, person.password);
     if (validPassword) {
