@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
 import Footer from "../Footer"
 import "./style.css"
 
 const Sidebar = ({ loggedIn }) => {
+  const [listingsRoute, setListingsRoute] = useState(false);
+
+  function onListings() {
+    setListingsRoute(true);
+  }
+
   function handleLogout() {
     console.log("logout button");
     localStorage.clear();
     window.location.replace("/");
   }
+
+  if (listingsRoute) {
+    return <Redirect to='/listings' />
+  }
+
 
   return (
     <div >
@@ -76,7 +88,8 @@ const Sidebar = ({ loggedIn }) => {
               </>
             ) : (
               <>
-                <a className="nav-link" role="button" href="/login">
+
+                < a className="nav-link" role="button" href="/login">
                   Login
                 </a>
 
@@ -85,12 +98,12 @@ const Sidebar = ({ loggedIn }) => {
                 </a>
               </>
             )}
-          <Footer />
+            <Footer />
           </nav>
-          
+
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

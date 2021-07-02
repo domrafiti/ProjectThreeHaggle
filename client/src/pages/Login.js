@@ -10,6 +10,11 @@ export function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInFailed, setLoggedInFailed] = useState(false);
   const [data, setData] = useState(null);
+
+  useEffect(() => {
+    window.location.reload.bind(window.location);
+  });
+
   const login = (event) => {
     event.preventDefault();
     API.verifyUser({

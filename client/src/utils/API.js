@@ -15,7 +15,7 @@ export default {
   },
   //Saves a book to the database
   saveListing: function (listingData) {
-    console.log("111-listingData", listingData);
+    //console.log("111-listingData", listingData);
     return axios.post("/api/listing", listingData);
   },
   updateListing: function (id) {

@@ -51,7 +51,7 @@ module.exports = {
   },
 
   favorite: function (req, res) {
-    console.log(req.body.favorite);
+    //console.log(req.body.favorite);
     User.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

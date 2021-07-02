@@ -20,33 +20,41 @@ import "./haggle.css";
 function App() {
   return (
     <div className="flex-column justify-space-around ">
+
       <Router>
-        <Nav />
 
         <Switch>
           {/* Logged in routing here */}
           <Route exact path="/">
+            <Nav />
             <Home />
           </Route>
           <Route exact path="/new-listing">
+            <Nav />
             <CreateNew />
           </Route>
           <Route exact path="/listings">
+            <Nav />
             <Listings />
           </Route>
           <Route exact path="/listings/:id">
+            <Nav />
             <Listing />
           </Route>
           <Route exact path="/profile/:id">
+            <Nav />
             <Profile />
           </Route>
           <Route exact path="/profile/">
+            <Nav />
             <Profile />
           </Route>
           <Route exact path="/login">
+            <Nav />
             <Login />
           </Route>
           <Route exact path="/signup">
+            <Nav />
             <Signup />
           </Route>
           <Route exact path="/upload">

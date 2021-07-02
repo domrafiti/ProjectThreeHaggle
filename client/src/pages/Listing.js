@@ -20,6 +20,7 @@ function Listing() {
   let loggedUser = localStorage.getItem("userId");
 
   // Load all books and store them with setBooks
+  //console.log('15-listing.js', listing.user);
   useEffect(() => {
     loadListing();
   }, [id]);
@@ -45,9 +46,9 @@ function Listing() {
     API.getListing(id)
       .then((res) => {
         let listingData = res.data;
-        console.log(listingData.user._id);
+        //console.log(listingData.user._id);
         if (listingData.user._id === loggedUser) {
-          console.log("its a match");
+          //console.log("its a match");
           setOwnListing(true);
         }
         setListing(listingData);
@@ -85,7 +86,7 @@ function Listing() {
         <Redirect to="/profile" />
       ) : (
         <div className=" container container-fluid my-5 card" id="listing-div">
-          <div className="row " style={{margin:"20px auto"}}>
+          <div className="row " style={{ margin: "20px auto" }}>
             <div className="col-md-6">
               <img
                 src={listing.image_path}

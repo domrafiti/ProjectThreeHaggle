@@ -15,7 +15,7 @@ function Listings() {
   function loadListings() {
     API.getListings()
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         setListings(res.data);
         setFilteredListings(res.data);
         setFullListings(res.data);
